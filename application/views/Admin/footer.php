@@ -1,149 +1,74 @@
-<!--  <script type="text/javascript">
-        function add_chatinline(){
-          var hccid=90375079;
-          var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;
-          var ct=document.getElementsByTagName("script")[0];
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.0.0-alpha
+    </div>
+  </footer>
 
-          ct.parentNode.insertBefore(nt,ct);
-        }
-        add_chatinline();
-  </script>
--->
-  <!-- Jquery Core Js -->
-  <script src="<?php echo base_url();?>/asset/plugins/jquery/jquery.min.js"></script>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
 
-  <!-- Bootstrap Core Js -->
-  <script src="<?php echo base_url();?>/asset/plugins/bootstrap/js/bootstrap.js"></script>
+<!-- jQuery -->
+<script src="<?php echo base_url();?>asset/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url();?>asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url();?>asset/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo base_url();?>asset/plugins/datatables/dataTables.bootstrap4.js"></script>
+<!-- Morris.js charts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="<?php echo base_url();?>asset/plugins/morris/morris.min.js"></script>
+<!-- Sparkline -->
+<script src="<?php echo base_url();?>asset/plugins/sparkline/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="<?php echo base_url();?>asset/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="<?php echo base_url();?>asset/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="<?php echo base_url();?>asset/plugins/knob/jquery.knob.js"></script>
+<!-- daterangepicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script src="<?php echo base_url();?>asset/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="<?php echo base_url();?>asset/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="<?php echo base_url();?>asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Slimscroll -->
+<script src="<?php echo base_url();?>asset/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="<?php echo base_url();?>asset/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url();?>asset/dist/js/adminlte.js"></script>
+<!--<script src="<?php echo base_url();?>asset/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="<?php echo base_url();?>asset/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?php echo base_url();?>asset/dist/js/demo.js"></script>
 
-  <!-- Select Plugin Js -->
-  <script src="<?php echo base_url();?>/asset/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
 
-  <!-- Slimscroll Plugin Js -->
-  <script src="<?php echo base_url();?>/asset/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-  <!-- Waves Effect Plugin Js -->
-  <script src="<?php echo base_url();?>/asset/plugins/node-waves/waves.js"></script>
-
-  <!-- Jquery CountTo Plugin Js -->
-  <script src="<?php echo base_url();?>/asset/plugins/jquery-countto/jquery.countTo.js"></script>
-
-  <!-- Morris Plugin Js -->
-  <script src="<?php echo base_url();?>/asset/plugins/raphael/raphael.min.js"></script>
-  <script src="<?php echo base_url();?>/asset/plugins/morrisjs/morris.js"></script>
-
-  <!-- ChartJs -->
-  <script src="<?php echo base_url();?>/asset/plugins/chartjs/Chart.bundle.js"></script>
-
-  <script src="<?php echo base_url();?>/asset/vendors/switchery/dist/switchery.min.js"></script>
-
-  <!-- Flot Charts Plugin Js -->
-  <script src="<?php echo base_url();?>/asset/plugins/flot-charts/jquery.flot.js"></script>
-  <script src="<?php echo base_url();?>/asset/plugins/flot-charts/jquery.flot.resize.js"></script>
-  <script src="<?php echo base_url();?>/asset/plugins/flot-charts/jquery.flot.pie.js"></script>
-  <script src="<?php echo base_url();?>/asset/plugins/flot-charts/jquery.flot.categories.js"></script>
-  <script src="<?php echo base_url();?>/asset/plugins/flot-charts/jquery.flot.time.js"></script>
-
-  <!-- Sparkline Chart Plugin Js -->
-  <script src="<?php echo base_url();?>/asset/plugins/jquery-sparkline/jquery.sparkline.js"></script>
-
-  <!-- Custom Js -->
-  <script src="<?php echo base_url();?>/asset/js/admin.js"></script>
-  <script src="<?php echo base_url();?>/asset/js/pages/index.js"></script>
-
-  <!-- Demo Js -->
-  <script src="<?php echo base_url();?>asset/js/demo.js"></script>
-
-  <!-- Parsley-->
-  <script src="<?php echo base_url();?>asset/vendors/parsleyjs/dist/parsley.min.js"></script>
-
-
-
-  <script type="text/javascript">
-      $(document).ready(function() {
-        $.listen('parsley:field:validate', function() {
-          validateFront();
-        });
-        $('#demo-form .btn').on('click', function() {
-          $('#demo-form').parsley().validate();
-          validateFront();
-        });
-        var validateFront = function() {
-          if (true === $('#demo-form').parsley().isValid()) {
-            $('.bs-callout-info').removeClass('hidden');
-            $('.bs-callout-warning').addClass('hidden');
-          } else {
-            $('.bs-callout-info').addClass('hidden');
-            $('.bs-callout-warning').removeClass('hidden');
-          }
-        };
-      });
-
-      $(document).ready(function() {
-        $.listen('parsley:field:validate', function() {
-          validateFront();
-        });
-        $('#demo-form2 .btn').on('click', function() {
-          $('#demo-form2').parsley().validate();
-          validateFront();
-        });
-        var validateFront = function() {
-          if (true === $('#demo-form2').parsley().isValid()) {
-            $('.bs-callout-info').removeClass('hidden');
-            $('.bs-callout-warning').addClass('hidden');
-          } else {
-            $('.bs-callout-info').addClass('hidden');
-            $('.bs-callout-warning').removeClass('hidden');
-          }
-        };
-      });
-      try {
-        hljs.initHighlightingOnLoad();
-      } catch (err) {}
-    </script>
-
-    <script>
-      $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": true,
-          "ordering": false,
-          "info": true,
-          "autoWidth": false
-        });
-    $('#example2 thead').detach();
-    $('#example3').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": true,
-          "ordering": false,
-          "info": true,
-          "autoWidth": false
-        });
-    $('#example3 thead').detach();
-    $('#example4').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": true,
-          "ordering": false,
-          "info": false,
-          "autoWidth": false,
-      "pageLength": 20
-        });
-    $('#example4 thead').detach();
-    $('#example7').DataTable({
-          "paging": false,
-          "lengthChange": false,
-          "searching": true,
-          "ordering": false,
-          "info": false,
-          "autoWidth": false,
-      "pageLength": 20
-        });
-    $('#example7 thead').detach();
-      });
-    </script>
 </body>
-
 </html>

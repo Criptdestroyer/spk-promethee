@@ -22,10 +22,10 @@
                     <div class="card card-success">
                         <div class="card-header">
                             <h2 class="card-title">
-                                Daftar Kriteria
+                                Daftar Guru
                             </h2>
                             <div class="pull-right">
-                                <a href="<?php echo site_url('Admin/Home/tambah_kelas'); ?>" class="btn btn-info">Add</a> 
+                                <a href="<?php echo site_url('Admin/Home/tambah_guru'); ?>" class="btn btn-info">Add</a> 
                             </div>
                         </div>
                         <div class="card-body">
@@ -33,23 +33,29 @@
                             <table class="table table-striped table-bordered">
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Kriteria</th>
-                                    <th>Bobot</th>
-                                    <th>Jenis</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Mengajar di Kelas</th>
+                                    <th>Level</th>
                                     <th>Actions</th>
                                 </tr>
                                 <?php
                                     $c = 1;
-                                 foreach($kriteria->result_array() as $p){ ?>
+                                 foreach($guru->result_array() as $p){ ?>
                                     
                                 <tr>
                                     <td><?php echo $c; ?></td>
                                     <td><?php echo $p['nama']; ?></td>
-                                    <td><?php echo $p['bobot']; ?></td>
-                                    <td><?php echo $p['jenis']; ?></td>
+                                    <td><?php echo $p['email']; ?></td>
+                                    <td><?php echo $p['NamaKelas']; ?></td>
+                                    <td><?php echo $p['leveling']; ?></td>
                                     <td>
-                                        <a href="<?php echo site_url('Admin/Home/edit_kriteria/'.$p['id']); ?>" class="btn btn-info btn-xs">Edit</a> 
-                                        <a href="<?php echo site_url('Admin/Home/hapus_kriteria/'.$p['id']); ?>" class="btn btn-danger btn-xs">Delete</a>
+                                      <?php  if($p['id_guru']!= NULL){?>
+                                        <a href="<?php echo site_url('Admin/Home/edit_guru/'.$p['id_guru']); ?>" class="btn btn-info btn-xs">Edit</a> 
+                                        <a href="<?php echo site_url('Admin/Home/hapus_guru/'.$p['id_guru']); ?>" class="btn btn-danger btn-xs">Delete</a>
+                                      <?php }else{ ?>
+                                        ------
+                                      <?php } ?>
                                     </td>
                                 </tr>
                                 <?php $c++; } ?>

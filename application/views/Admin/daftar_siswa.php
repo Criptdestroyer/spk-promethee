@@ -22,37 +22,41 @@
                     <div class="card card-success">
                         <div class="card-header">
                             <h2 class="card-title">
-                                Daftar Kriteria
+                                Daftar Pengguna
                             </h2>
                             <div class="pull-right">
-                                <a href="<?php echo site_url('Admin/Home/tambah_kelas'); ?>" class="btn btn-info">Add</a> 
+                                <a href="<?php echo site_url('Admin/Home/tambah_pengguna'); ?>" class="btn btn-info">Add</a> 
                             </div>
                         </div>
                         <div class="card-body">
                           <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
+                            <table id="example1" class="table table-striped table-bordered">
+                              <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Kriteria</th>
-                                    <th>Bobot</th>
-                                    <th>Jenis</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Siswa Kelas</th>
                                     <th>Actions</th>
                                 </tr>
+                              </thead>
+                              <tbody>
                                 <?php
                                     $c = 1;
-                                 foreach($kriteria->result_array() as $p){ ?>
+                                 foreach($siswa->result_array() as $p){ ?>
                                     
                                 <tr>
                                     <td><?php echo $c; ?></td>
                                     <td><?php echo $p['nama']; ?></td>
-                                    <td><?php echo $p['bobot']; ?></td>
-                                    <td><?php echo $p['jenis']; ?></td>
+                                    <td><?php echo $p['email']; ?></td>
+                                    <td><?php echo $p['NamaKelas']; ?></td>
                                     <td>
-                                        <a href="<?php echo site_url('Admin/Home/edit_kriteria/'.$p['id']); ?>" class="btn btn-info btn-xs">Edit</a> 
-                                        <a href="<?php echo site_url('Admin/Home/hapus_kriteria/'.$p['id']); ?>" class="btn btn-danger btn-xs">Delete</a>
+                                        <a href="<?php echo site_url('Admin/Home/edit_guru/'.$p['id']); ?>" class="btn btn-info btn-xs">Edit</a> 
+                                        <a href="<?php echo site_url('Admin/Home/hapus_guru/'.$p['id']); ?>" class="btn btn-danger btn-xs">Delete</a>
                                     </td>
                                 </tr>
                                 <?php $c++; } ?>
+                              </tbody>
                             </table>
                         </div>
                     </div>
@@ -61,4 +65,3 @@
         </div>
       </div>                          
 <section>
-</div>

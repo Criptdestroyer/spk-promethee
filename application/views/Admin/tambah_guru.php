@@ -21,31 +21,31 @@
                     <div class="card card-success">
                         <div class="card-header">
                             <h2 class="card-title">
-                                Tambah Kriteria
+                                Tambah Guru
                             </h2>
                         </div>
                         <div class="card-body">
-                            <form action="<?php echo base_url();?>Admin/Home/proses_tambah_kriteria" method="post" role="form">
+                            <form action="<?php echo base_url();?>Admin/Home/proses_tambah_guru" method="post" role="form">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="nama">Nama Kriteria</label>
-                                            <input type="text" name="nama" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="kelas">Jenis</label>
-                                            <select class="form-control show-tick" name="jenis" id="id_kelas">
-                                                        <option value="">-- PILIH JENIS --</option>
-                                                        <option value="Benefit">Benefit</option>
-                                                        <option value="Cost">Cost</option>
+                                            <label for="nama">Nama Guru</label>
+                                            <select class="form-control show-tick" name="id" id="id">
+                                                        <option value="">-- PILIH GURU --</option>
+                                                        <?php foreach ($guru->result_array() as $guru) {?>
+                                                            <option value="<?php echo $guru['id'];?>"><?php echo $guru['nama'];?></option>
+                                                        <?php } ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="nama">Bobot</label>
-                                            <input type="number" name="nama" class="form-control" step="0.01" required>
+                                            <label for="kelas">Pilih Kelas</label>
+                                            <select class="form-control show-tick" name="id_kelas" id="id_kelas">
+                                                        <option value="">-- PILIH KELAS --</option>
+                                                        <?php foreach ($kelas->result_array() as $kelas) {?>
+                                                            <option value="<?php echo $kelas['id_kelas'];?>"><?php echo $kelas['NamaKelas'];?></option>
+                                                        <?php } ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="card-footer">

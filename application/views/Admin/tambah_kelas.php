@@ -21,33 +21,33 @@
                     <div class="card card-success">
                         <div class="card-header">
                             <h2 class="card-title">
-                                Tambah Kriteria
+                                Tambah Kelas
                             </h2>
                         </div>
                         <div class="card-body">
-                            <form action="<?php echo base_url();?>Admin/Home/proses_tambah_kriteria" method="post" role="form">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="nama">Nama Kriteria</label>
-                                            <input type="text" name="nama" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="kelas">Jenis</label>
-                                            <select class="form-control show-tick" name="jenis" id="id_kelas">
-                                                        <option value="">-- PILIH JENIS --</option>
-                                                        <option value="Benefit">Benefit</option>
-                                                        <option value="Cost">Cost</option>
+                            <form action="<?php echo base_url();?>Admin/Home/proses_tambah_kelas" method="post" role="form">
+                                <label for="nama">Nama Guru</label>
+                                   <div class="row">
+                                       <div class="col-3">
+                                            <select class="form-control show-tick" name="tingkat" id="nama">
+                                                <option value="">-- PILIH TINGKAT --</option>
+                                                <option value="XII">XII</option>
+                                                <option value="XI">XI</option>
+                                                <option value="X">X</option>            
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="nama">Bobot</label>
-                                            <input type="number" name="nama" class="form-control" step="0.01" required>
+                                        <div class="col-4">
+                                            <select class="form-control show-tick" name="konsentrasi" id="nama">
+                                                <option value="">-- PILIH KEJURUAN --</option>
+                                                <option value="IPA">IPA</option>
+                                                <option value="IPS">IPS</option>
+                                                <option value="BAHAS">Bahasa</option>            
+                                            </select>
                                         </div>
-                                    </div>
+                                        <div class="col-5">
+                                            <input type="text" class="form-control" placeholder="Kelas" name="kelas">
+                                        </div>
+                                   </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary m-t-15 waves-effect">TAMBAH</button>
                                     </div>

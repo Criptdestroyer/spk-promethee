@@ -22,7 +22,7 @@
                     <div class="card card-success">
                         <div class="card-header">
                             <h2 class="card-title">
-                                Daftar Kriteria
+                                Daftar Kelas
                             </h2>
                             <div class="pull-right">
                                 <a href="<?php echo site_url('Admin/Home/tambah_kelas'); ?>" class="btn btn-info">Add</a> 
@@ -33,23 +33,19 @@
                             <table class="table table-striped table-bordered">
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Kriteria</th>
-                                    <th>Bobot</th>
-                                    <th>Jenis</th>
+                                    <th>Nama Kelas</th>
                                     <th>Actions</th>
                                 </tr>
                                 <?php
                                     $c = 1;
-                                 foreach($kriteria->result_array() as $p){ ?>
+                                 foreach($kelas->result_array() as $p){ ?>
                                     
                                 <tr>
                                     <td><?php echo $c; ?></td>
-                                    <td><?php echo $p['nama']; ?></td>
-                                    <td><?php echo $p['bobot']; ?></td>
-                                    <td><?php echo $p['jenis']; ?></td>
+                                    <td><?php echo $p['NamaKelas']; ?></td>
                                     <td>
-                                        <a href="<?php echo site_url('Admin/Home/edit_kriteria/'.$p['id']); ?>" class="btn btn-info btn-xs">Edit</a> 
-                                        <a href="<?php echo site_url('Admin/Home/hapus_kriteria/'.$p['id']); ?>" class="btn btn-danger btn-xs">Delete</a>
+                                        <a href="<?php echo site_url('Admin/Home/edit_kelas/'.$p['id_kelas']); ?>" class="btn btn-info btn-xs">Edit</a> 
+                                        <a href="<?php echo site_url('Admin/Home/hapus_kelas/'.$p['id_kelas']); ?>" class="btn btn-danger btn-xs">Delete</a>
                                     </td>
                                 </tr>
                                 <?php $c++; } ?>

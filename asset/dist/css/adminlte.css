@@ -12167,9 +12167,21 @@ label:not(.form-check-label):not(.custom-file-label) {
   color: #444;
 }
 
-.login-page,
+.login-page {
+  background-image: url("back-img.jpg"); /* The image used */
+   background-color: #cccccc; /* Used if the image is unavailable */
+   height: 500px; /* You must set a specified height */
+   background-position: center; /* Center the image */
+   background-repeat: no-repeat; /* Do not repeat the image */
+   background-size: cover; /* Resize the background image to cover the entire container */
+}
 .register-page {
-  background: #e9ecef;
+   background-image: url("back-img.jpg"); /* The image used */
+   background-color: #cccccc; /* Used if the image is unavailable */
+   height: 500px; /* You must set a specified height */
+   background-position: center; /* Center the image */
+   background-repeat: no-repeat; /* Do not repeat the image */
+   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 .login-box,
