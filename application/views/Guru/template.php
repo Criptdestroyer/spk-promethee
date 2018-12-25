@@ -1,6 +1,6 @@
 <?php
-	$this->load->view('Juri/header');
-	$this->load->view('Juri/sidebar');
-	$this->load->view('Juri/content');
-	$this->load->view('Juri/footer');
+	$this->load->view('Guru/header');
+	$this->load->view('Guru/sidebar');
+	$this->load->view('Guru/content');
+	$this->load->view('Guru/footer');
 ?>

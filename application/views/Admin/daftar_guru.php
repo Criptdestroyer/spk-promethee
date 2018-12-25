@@ -30,7 +30,8 @@
                         </div>
                         <div class="card-body">
                           <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
+                            <table id="example1" class="table table-striped table-bordered">
+                              <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
@@ -39,6 +40,8 @@
                                     <th>Level</th>
                                     <th>Actions</th>
                                 </tr>
+                              </thead>
+                              <tbody>
                                 <?php
                                     $c = 1;
                                  foreach($guru->result_array() as $p){ ?>
@@ -59,6 +62,7 @@
                                     </td>
                                 </tr>
                                 <?php $c++; } ?>
+                                </tbody>
                             </table>
                         </div>
                     </div>

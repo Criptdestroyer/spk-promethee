@@ -45,7 +45,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="nama">Bobot</label>
-                                            <input type="number" name="nama" class="form-control" step="0.01" required>
+                                            <input type="number" name="bobot" class="form-control" step="0.01" required>
                                         </div>
                                     </div>
                                     <div class="card-footer">

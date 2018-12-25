@@ -30,12 +30,15 @@
                         </div>
                         <div class="card-body">
                           <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
+                            <table id="example1" class="table table-striped table-bordered">
+                              <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Kelas</th>
                                     <th>Actions</th>
                                 </tr>
+                              </thead>
+                              <tbody>
                                 <?php
                                     $c = 1;
                                  foreach($kelas->result_array() as $p){ ?>
@@ -49,6 +52,7 @@
                                     </td>
                                 </tr>
                                 <?php $c++; } ?>
+                                </tbody>
                             </table>
                         </div>
                     </div>

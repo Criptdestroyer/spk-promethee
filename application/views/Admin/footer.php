@@ -1,5 +1,5 @@
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2014-2018 SPK-Promethee</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.0.0-alpha
@@ -55,11 +55,31 @@
 <script src="<?php echo base_url();?>asset/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url();?>asset/dist/js/demo.js"></script>
+<script src="<?php echo base_url();?>asset/dist/js/toastr.min.js"></script>
 
 <script>
   $(function () {
     $("#example1").DataTable();
-    $('#example2').DataTable({
+    $("#example3").DataTable();
+    $("#example4").DataTable();
+    $("#example5").DataTable();
+    $("#example6").DataTable();
+    $("#example7").DataTable();
+    $("#example8").DataTable();
+    $("#example9").DataTable();
+    $("#example10").DataTable();
+    $("#example11").DataTable();
+    $("#example12").DataTable();
+    $("#example13").DataTable();
+    $("#example14").DataTable();
+    $("#example15").DataTable();
+    $("#example16").DataTable();
+    $("#example17").DataTable();
+    $("#example18").DataTable();
+    $("#example19").DataTable();
+    $("#example20").DataTable();
+    $("#example21").DataTable();
+    $('#example22').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,

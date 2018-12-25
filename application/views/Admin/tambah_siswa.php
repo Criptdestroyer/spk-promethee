@@ -21,53 +21,55 @@
                     <div class="card card-success">
                         <div class="card-header">
                             <h2 class="card-title">
-                                Tambah Pengguna
+                                Tambah Siswa
                             </h2>
                         </div>
-                        <div class="body">
-                            <form action="<?php echo base_url();?>Admin/Home/proses_tambah_pengguna" method="post">
-                                <div class="form-group">
-                                  <div class="col-sm-6">
-                                  <label>NAMA</label>
-                                  <input type="text" id="nama" name="nama" class="form-control" required>       
-                                </div>
-                                </div>
-                                <div class="form-group ">
-                                  <div class="col-sm-6">
-                                    <label class="form-label">NIP</label>
+                        <div class="card-body">
+                            <form action="<?php echo base_url();?>Admin/Home/proses_tambah_siswa" method="post">
+                                <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="nama">Nama Siswa</label>
+                                            <select class="form-control show-tick" name="id" id="id">
+                                                        <option value="">-- PILIH SISWA --</option>
+                                                        <?php foreach ($siswa->result_array() as $siswa) {?>
+                                                            <option value="<?php echo $siswa['id'];?>|<?php echo $siswa['nama'];?>"><?php echo $siswa['nama'];?></option>
+                                                        <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                 <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="nama">Jenis Kelamin</label>
+                                                <div class="form-check">
+                                                  <input class="form-check-input" name="jenis_kelamin" type="radio" value="Laki - laki">
+                                                  <label class="form-check-label">Laki - laki</label>
+                                                </div>
+                                                <div class="form-check">
+                                                  <input class="form-check-input" name="jenis_kelamin" type="radio" value="Perempuan">
+                                                  <label class="form-check-label">Perempuan</label>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        <input type="text" id="nip" name="nip" class="form-control" required>
-                                        
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="nama">Asal</label>
+                                            <input type="text" name="kecamatan" class="form-control" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="form-line">
-                                        <input type="text" id="email" name="email" class="form-control" required>
-                                        <label class="form-label">EMAIL</label>
+                                    <div class="col-6">
+                                       <div class="form-group">
+                                            <label for="kelas">Pilih Kelas</label>
+                                            <select class="form-control show-tick" name="id_kelas" id="id_kelas">
+                                                        <option value="">-- PILIH KELAS --</option>
+                                                        <?php foreach ($kelas->result_array() as $kelas) {?>
+                                                            <option value="<?php echo $kelas['id_kelas'];?>"><?php echo $kelas['NamaKelas'];?></option>
+                                                        <?php } ?>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="form-line">
-                                        <input type="text" id="handphone" name="handphone" class="form-control" required>
-                                        <label class="form-label">Nomor Handphone</label>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="form-line">
-                                        <input type="password" id="password" name="password" class="form-control" required>
-                                        <label class="form-label">Password</label>
-                                    </div>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="form-line">
-                                    <label class="form-label">Hak Akses</label>
-                                        <select class="form-control show-tick" name="id_leveling">
-                                            <option value="">-- PILIH HAK AKSES --</option>
-                                        </select>
-                                        
-                                    </div>
-                                </div>                            
-                                <br>
+
+                        
                                 <button type="submit" class="btn btn-primary m-t-15 waves-effect">TAMBAH</button>
                             </form>
                         </div>

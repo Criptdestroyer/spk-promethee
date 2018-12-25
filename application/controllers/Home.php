@@ -29,6 +29,8 @@
 				}
 				elseif ($level == '3') {
 					redirect(base_url('/Guru/Home'),$data);
+				}elseif($level == '4'){
+                    redirect(base_url('/Kepsek/Home'),$data);
 				}
         		else{
         			redirect(base_url('Home/index'));
@@ -38,7 +40,7 @@
 		}
 		
 		public function index()
-		{
+		{    
 			$data['login'] = $this->session->userdata('id',TRUE);
 	      	if($data['login']==FALSE)
 	       	{
@@ -57,6 +59,8 @@
 				}
 				elseif ($level == '3') {
 					redirect(base_url('/Guru/Home'),$data);
+				}elseif($level == '4'){
+                    redirect(base_url('/Kepsek/Home'),$data);
 				}
         		else{
         			redirect(base_url('Home/login'));
@@ -70,7 +74,8 @@
 
 		public function login()
 		{
-			$this->load->view('login');
+			$data['kelas'] = $this->Data_model->daftar_kelas();
+			$this->load->view('login',$data);
 		}
 
 		function proses()
@@ -109,6 +114,9 @@
 				elseif ($level == '3') {
         			redirect(base_url('/Guru/Home'),$data);
         		}
+        		elseif($level == '4'){
+                    redirect(base_url('/Kepsek/Home'),$data);
+				}
         		else{
         			print_r($data);
         		}
@@ -124,7 +132,39 @@
 
 		public function register()
 		{
-			$this->load->view('register');
+			$temp = json_decode($_POST['register']);
+			$this->load->model("Data_model");
+			$res;
+			if($temp[4] == 2){
+	            $data = [
+	                "nama"  => $temp[0],
+	                "email" => $temp[2],
+	                "username" => $temp[1],
+	                "password" => md5($temp[3]),
+	                "id_leveling" => $temp[4],
+	                "jenis_kelamin" => $temp[5],
+	                "kecamatan" => $temp[6],
+	                "id_kelas" => $temp[7]
+				];
+				$res = $this->Data_model->register_user($data,"siswa");
+			}else{
+                $data = [
+	                "nama"  => $temp[0],
+	                "email" => $temp[2],
+	                "username" => $temp[1],
+	                "password" => md5($temp[3]),
+	                "id_leveling" => $temp[4]
+				];
+				$res = $this->Data_model->register_user($data,"none");
+			}
+
+            if($res == 1){
+            	$hasil = $this->Data_model->login($data["nama"],$data["password"]);
+	            $this->session->set_flashdata("msg","re-login");
+                echo $data["nama"]." berhasil di tambah";
+            }else{
+            	echo $res;
+            }
 		}
 
 	}

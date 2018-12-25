@@ -26,7 +26,7 @@
                         </div>
                         <div class="card-body">
                             <form action="<?php echo base_url();?>Admin/Home/proses_tambah_kelas" method="post" role="form">
-                                <label for="nama">Nama Guru</label>
+                                <label for="nama">Nama Kelas</label>
                                    <div class="row">
                                        <div class="col-3">
                                             <select class="form-control show-tick" name="tingkat" id="nama">

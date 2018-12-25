@@ -1,6 +1,6 @@
 <?php
-	$this->load->view('Guru/header');
-	$this->load->view('Guru/sidebar');
-	$this->load->view('Guru/content');
-	$this->load->view('Guru/footer');
+	$this->load->view('Siswa/header');
+	$this->load->view('Siswa/sidebar');
+	$this->load->view('Siswa/content');
+	$this->load->view('Siswa/footer');
 ?>

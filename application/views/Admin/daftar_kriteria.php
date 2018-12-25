@@ -25,12 +25,13 @@
                                 Daftar Kriteria
                             </h2>
                             <div class="pull-right">
-                                <a href="<?php echo site_url('Admin/Home/tambah_kelas'); ?>" class="btn btn-info">Add</a> 
+                                <a href="<?php echo site_url('Admin/Home/tambah_kriteria'); ?>" class="btn btn-info">Add</a> 
                             </div>
                         </div>
                         <div class="card-body">
                           <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
+                            <table id="example1" class="table table-striped table-bordered">
+                              <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Kriteria</th>
@@ -38,6 +39,8 @@
                                     <th>Jenis</th>
                                     <th>Actions</th>
                                 </tr>
+                              </thead>
+                              <tbody>
                                 <?php
                                     $c = 1;
                                  foreach($kriteria->result_array() as $p){ ?>
@@ -48,11 +51,12 @@
                                     <td><?php echo $p['bobot']; ?></td>
                                     <td><?php echo $p['jenis']; ?></td>
                                     <td>
-                                        <a href="<?php echo site_url('Admin/Home/edit_kriteria/'.$p['id']); ?>" class="btn btn-info btn-xs">Edit</a> 
-                                        <a href="<?php echo site_url('Admin/Home/hapus_kriteria/'.$p['id']); ?>" class="btn btn-danger btn-xs">Delete</a>
+                                        <a href="<?php echo site_url('Admin/Home/edit_kriteria/'.$p['id_kriteria']); ?>" class="btn btn-info btn-xs">Edit</a> 
+                                        <a href="<?php echo site_url('Admin/Home/hapus_kriteria/'.$p['id_kriteria']); ?>" class="btn btn-danger btn-xs">Delete</a>
                                     </td>
                                 </tr>
                                 <?php $c++; } ?>
+                              </tbody>
                             </table>
                         </div>
                     </div>
