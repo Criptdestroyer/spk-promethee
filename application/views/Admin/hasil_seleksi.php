@@ -9,8 +9,7 @@
 
 foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
 
-				$bobot = $value_kriteria['bobot']/$data_kriteria['ekstra']['total_bobot'];
-
+				$bobot = $value_kriteria['bobot'];
 				$y = 1;
 				// Jarak Kriteria
 				foreach ($data_calon['data'] as $key_calon_y => $value_calon_y) {

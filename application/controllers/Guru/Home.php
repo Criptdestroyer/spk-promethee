@@ -202,15 +202,19 @@
 		}
 
 		function input_nilaiakademik()
-		{
+		{   
 			$this->checklogin();
 			$data['tittle']			=	"SPK Seleksi Kelas Unggulan";
 			$id_pengguna			=	$this->session->userdata('id');
 			$data['pengguna']		=	$this->Data_model->data_pengguna($id_pengguna);
 			$guru = $this->Data_model->gurup($id_pengguna);
-			foreach ($guru->result_array() as $key)
+			if(sizeof($guru->result_array()) != 0){
+              foreach ($guru->result_array() as $key)
 				$a = $key['id_kelas'];
-			$data['siswa']			=	$this->Data_model->daftar_siswa_kelas($a);
+   			$data['siswa']			=	$this->Data_model->daftar_siswa_kelas($a);
+			}else{
+				$data['siswa']      = 0;
+			}
 			$data['nilai']			=	$this->Data_model->nilaiun($id_pengguna);
 			$data['biodata']		=	$this->Data_model->cek_profil($id_pengguna);
 			$data['nilaiun']		=	$this->Data_model->cek_nilaiun($id_pengguna);

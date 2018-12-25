@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 25 Des 2018 pada 09.29
+-- Generation Time: 25 Des 2018 pada 13.47
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -73,7 +73,8 @@ CREATE TABLE `guru` (
 
 INSERT INTO `guru` (`id_guru`, `id`, `id_kelas`) VALUES
 (10, 66, 3),
-(11, 70, 1);
+(11, 70, 1),
+(12, 80, 2);
 
 -- --------------------------------------------------------
 
@@ -113,10 +114,10 @@ CREATE TABLE `kriteria` (
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `nama`, `bobot`, `jenis`) VALUES
-(3, 'Rata-Rata Nilai Akademik', 14, 'Benefit'),
-(4, 'Nilai Psikotes', 3, 'Benefit'),
-(5, 'Sertifikat Prestasi', 2, 'Benefit'),
-(7, 'Nilai UN', 1, 'Benefit');
+(3, 'Rata-Rata Nilai Akademik', 0.7, 'Benefit'),
+(4, 'Nilai Psikotes', 0.15, 'Benefit'),
+(5, 'Sertifikat Prestasi', 0.1, 'Benefit'),
+(7, 'Nilai UN', 0.05, 'Benefit');
 
 -- --------------------------------------------------------
 
@@ -214,7 +215,8 @@ INSERT INTO `pengguna` (`id`, `nama`, `email`, `username`, `password`, `id_level
 (76, 'Gouza Zou ', 'go@gmail.com', 'gou', '202cb962ac59075b964b07152d234b70', 2),
 (77, 'Alisia Septa', 'alisia@gmail.com', 'alis', '202cb962ac59075b964b07152d234b70', 2),
 (78, 'Mauro Zarate', 'zarate@gmail.com', 'zarate', '202cb962ac59075b964b07152d234b70', 2),
-(79, 'Tatitjana Indah', 'tea@gmail.com', 'tea', '202cb962ac59075b964b07152d234b70', 2);
+(79, 'Tatitjana Indah', 'tea@gmail.com', 'tea', '202cb962ac59075b964b07152d234b70', 2),
+(80, 'Dwi Z', 'dwi@gmail.com', 'dwi', '827ccb0eea8a706c4c34a16891f84e7b', 3);
 
 -- --------------------------------------------------------
 
@@ -434,7 +436,7 @@ ALTER TABLE `calon_kriteria`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `kelas`
 --
@@ -459,7 +461,7 @@ ALTER TABLE `nilaiun`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT for table `psikotes`
 --
