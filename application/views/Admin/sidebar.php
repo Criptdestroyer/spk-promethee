@@ -13,7 +13,7 @@
      $dashboard_label = "active";
   }else if($content == "Admin/daftar_pengguna" || $content == "Admin/tambah_pengguna"){
       $pengguna_label = "active";
-  }else if($content == "Admin/daftar_guru" || $content == "Admin/tambah_guru"){
+  }else if($content == "Admin/daftar_guru" || $content == "Admin/tambah_guru" || $content == "Admin/daftar_kelas" || $content == "Admin/tambah_kelas"){
        $guru_label = "active";
   }else if($content == "Admin/input_nilaipsikotes" || $content == "Admin/nilaipsikotes"){
        $npsikotest_label = "active";
@@ -21,8 +21,6 @@
        $siswa_label = "active";
   }else if($content == "Admin/daftar_kriteria" || $content == "Admin/tambah_kriteria"){
       $kriteria_label = "active";
-  }else if($content == "Admin/daftar_kelas" || $content == "Admin/tambah_kelas"){
-      $kelas_label = "active";
   }else if($content == "Admin/daftar_nilai_kriteria"){
       $nilai_label = "active";
   }else if($content == "Admin/perhitungan_seleksi" || $content == "Admin/hasil_seleksi"){
@@ -92,6 +90,31 @@
                 <i class="right fa fa-angle-left"></i><!--<span class="right badge badge-danger">New</span>-->
               </p>
             </a>
+            <ul class="nav nav-treeview">
+                 <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fa fa-address-card"></i>
+                      <p>
+                        Kelas
+                        <i class="fa fa-angle-left right"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="<?php echo base_url();?>Admin/Home/daftar_kelas" class="nav-link">
+                          <i class="fa fa-circle-o nav-icon"></i>
+                          <p>Daftar Kelas</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="<?php echo base_url();?>Admin/Home/tambah_kelas" class="nav-link">
+                          <i class="fa fa-circle-o nav-icon"></i>
+                          <p>Input Kelas</p>
+                        </a>
+                      </li>
+                    </ul>
+          </li>
+            </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<?php echo base_url();?>Admin/Home/daftar_guru" class="nav-link">
@@ -177,7 +200,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link <?= $kelas_label; ?>">
               <i class="nav-icon fa fa-address-card"></i>
               <p>
@@ -199,7 +222,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url();?>Admin/Home/daftar_nilai" class="nav-link <?= $nilai_label; ?>">
               <i class="nav-icon fa fa-edit"></i>

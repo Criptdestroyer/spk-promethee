@@ -794,22 +794,47 @@
             $this->load->view('Admin/template',$data);
         }
 
-        public function simpan_hasil(){
-        	$hasil = $_POST["rangking"];
-        	$d_siswa = $this->Data_model->daftar_siswa()->result_array();
-        	$i = 1;
-        	foreach ($hasil as  $value) {
-        		foreach ($d_siswa as $value_s) {
-        			if($value["nama"] == $value_s["nama"]){
-        			  $hasil["A".$i]["id_siswa"] = $value_s["id_siswa"];
-                      break;
-        			}
-        		}
-        		$i++;
+        public function hasil($aksi){
+        	$hasil;
+        	if($aksi == "simpan" || $aksi == "umumkan" || $aksi=="cetak"){
+               $hasil = $_POST["rangking"];
+        	   $d_siswa = $this->Data_model->daftar_siswa()->result_array();
+	        	$i = 1;
+	        	foreach ($hasil as  $value) {
+	        		foreach ($d_siswa as $value_s) {
+	        			if($value["nama"] == $value_s["nama"]){
+	        			  $hasil["A".$i]["id_siswa"] = $value_s["id_siswa"];
+	                      break;
+	        			}
+	        		}
+	        		$i++;
+	        	}
         	}
-        	$this->Data_model->simpan_hasil($hasil);
-        	echo "Berhasil";
+        	
+        	if($aksi == "simpan"){
+	        	$this->Data_model->simpan_hasil($hasil);
+	        	echo "Rangking Berhasil Di Simpan";
+        	}else if($aksi == "umumkan"){
+                foreach ($hasil as $value) {
+                   $data = array();
+                   $data["status"] =  $value['status'];
+                   $this->Data_model->update_siswa($data,$value["id_siswa"]);
+                }
+                echo "Pengunguman Berhasil disampaikan ke siswa";
+        	}else if($aksi == "tarik"){
+        		$d_siswa = $this->Data_model->daftar_siswa()->result_array();
+        		foreach ($d_siswa as $value) {
+        			$data = array();
+        		  	$data["status"] = "Belom";
+                    $this->Data_model->update_siswa($data,$value["id_siswa"]);
+        		}
+        		echo "Pengunguman Di tarik dari siswa";
+        	}else if($aksi == "cetak"){
+                
+        	}
         }
+
+
 
 
 	}

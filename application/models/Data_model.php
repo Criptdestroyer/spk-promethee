@@ -311,9 +311,12 @@ class Data_model extends CI_Model{
         return $q;
     }
 
-    function get_data_kelas(){
+    function get_data_kelas($id=""){
         $this->db->select('*');
         $this->db->from('kelas');
+        if($id  != ""){
+           $this->db->where('id_kelas',$id);
+        }
         $q  =   $this->db->get()->result_array();
         return $q;
     }
@@ -694,6 +697,11 @@ class Data_model extends CI_Model{
                 "jenis_kelamin" => $data["jenis_kelamin"],
                 "kecamatan" => $data["kecamatan"],
                 "id_kelas" => $data["id_kelas"],
+                "asal_sekolah" => $data["asal_sekolah"],
+                "ttl" => $data["ttl"],
+                "alamat" => $data["alamat"],
+                "no_hp" => $data["no_hp"],
+                "nis" => $data["nis"],
                 "submit_by" => NULL
             ];
              if($res == 1){
@@ -732,8 +740,13 @@ class Data_model extends CI_Model{
         $this->db->from('guru');
         $this->db->join('pengguna','pengguna.id=guru.id');
         $this->db->where('pengguna.id=',$id_guru);
-        $id_kelas = $this->db->get()->row()->id_kelas;
-        $res = $this->db->query("SELECT * FROM calon_kriteria INNER JOIN siswa on siswa.id_siswa = calon_kriteria.calon_id WHERE siswa.id_kelas=".$id_kelas." AND calon_kriteria.id_kriteria = 3")->result_array();
+        $res = $this->db->get()->result_array();
+        if(sizeof($res) > 0){
+            $id_kelas = $res[0]["id_kelas"];
+            $res = $this->db->query("SELECT * FROM calon_kriteria INNER JOIN siswa on siswa.id_siswa = calon_kriteria.calon_id WHERE siswa.id_kelas=".$id_kelas." AND calon_kriteria.id_kriteria = 3")->result_array();
+        }else{
+           $res = array();
+        }
         return $res;
     }
 
@@ -758,6 +771,37 @@ class Data_model extends CI_Model{
         $this->db->order_by("Net_Flow","DESC");
         $res = $this->db->get()->result_array();
         return $res;
+    }
+
+    public function get_mata_pelajaran($jurusan){
+       $this->db->select("*");
+       $this->db->from("mata_pelajaran");
+       $this->db->where("jurusan_mp",$jurusan);
+       $res = $this->db->get()->result_array();
+       return $res;  
+    }
+
+    public function insert_nilai_akademik($data,$rerata){
+       $id_kriteria = 3;
+       foreach ($data as $value) {
+           $this->db->insert("nilaiakademik",$value);
+       }
+       $data_nilai = [
+           "calon_id" => $data[0]->id_siswa,
+           "Id_kriteria" => $id_kriteria,
+           "value" => $rerata
+       ];
+       $this->db->insert("calon_kriteria",$data_nilai);
+    }
+
+    public function get_nilai_akademik_by($id_siswa){
+      $res = $this->db->query('SELECT nama_mp,nilai FROM nilaiakademik INNER JOIN mata_pelajaran ON nilaiakademik.id_mp = mata_pelajaran.id_mp INNER JOIN siswa ON siswa.id_siswa = nilaiakademik.id_siswa WHERE siswa.id_siswa = '.$id_siswa)->result_array();
+      return $res;
+    }
+
+    public function get_rerata_nilai_by($id_siswa){
+       $res = $this->db->query('SELECT kriteria.nama,calon_kriteria.value FROM calon_kriteria INNER JOIN kriteria ON calon_kriteria.id_kriteria = kriteria.id_kriteria INNER JOIN siswa ON siswa.id_siswa = calon_kriteria.calon_id WHERE siswa.id_siswa = '.$id_siswa)->result_array();
+      return $res;
     }
 
 

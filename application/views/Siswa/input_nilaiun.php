@@ -52,13 +52,13 @@
                                       <input type="number" name="ipa" class="form-control" required>
                                   </div>
                                 </div>
-                                <div class="col-6">
+                                <!-- <div class="col-6">
                                   <div class="form-group">
                                       <label for="nama">Nilai IPS</label>
                                       <input type="number" name="ips" class="form-control" required>
                                   </div>
-                                </div>
-                                <div class="col-6">
+                                </div> -->
+                               <!--  <div class="col-6">
                                   <div class="form-group">
                                       <label for="nama">Nilai Agama</label>
                                       <input type="number" name="agama" class="form-control" required>
@@ -69,7 +69,7 @@
                                       <label for="nama">Nilai PKN</label>
                                       <input type="number" name="pkn" class="form-control" required>
                                   </div>
-                                </div>
+                                </div> -->
                                 <button type="submit" class="btn btn-primary m-t-15 waves-effect">Submit</button>
                             </form>
                         </div>

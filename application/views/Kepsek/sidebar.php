@@ -10,7 +10,7 @@
         $hasil = "active";
        break;
      default:
-        $nakademik = "active";
+        $hasil = "active";
        break;
    }
   foreach($pengguna->result_array() as $key)

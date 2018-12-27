@@ -35,15 +35,45 @@
                                 ?>
                                   <li class="item">
                                     <div class="product-img">
+                                      <a target="blank" href="<?php echo base_url();?>file/dokumen/<?php echo $sert['FileSertifikat'];?>" class="product-title">
                                       <img src="<?php echo base_url();?>file/dokumen/<?php echo $sert['FileSertifikat'];?>" alt="Product Image" width="100px">
+                                    </a>
                                     </div>
                                     <div class="product-info">
-                                      <a target="blank" href="<?php echo base_url();?>file/dokumen/<?php echo $sert['FileSertifikat'];?>" class="product-title"><?php echo $sert['NamaSertifikat'];?></a>
-                                      
+                                      <?php echo $sert['NamaSertifikat'];?>
                                     </div>
                                   </li>
                                  <?php } ?>
                                 </ul>
+                        </div>
+                        <div class="card-header">
+                            <h5 class="card-title">
+                                Tambah Lagi Sertifikat
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="<?php echo base_url();?>Siswa/Home/proses_input_sertifikat" method="post" enctype="multipart/form-data">
+                                <div class="col-12">
+                                  <div id="dynamic_field">
+                                  <div class="row">
+                                        <div class="col-6">
+                                            <label for="nama">Nama Sertifikat</label>
+                                            <input type="text" name="NamaSertifikat[]" class="form-control" required>
+                                        </div>
+                                        <div class="col-5">
+                                            <label for="nama">Pilih File</label>
+                                            <input type="file" name="FileSertifikat[]" class="form-control" required>
+                                        </div>
+                                        <div class="col-1">
+                                            <label for="nama">Tambah</label>
+                                            <button type="button" name="add" id="add" class="btn-success m-t-15 waves-effect form-control"><i class="icon fa fa-plus-square"></i></button>
+                                        </div>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                            </form>
                         </div>
                         
                     </div>

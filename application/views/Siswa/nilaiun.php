@@ -46,15 +46,6 @@
                                     <b>IPA</b> <a class="float-right"><?php echo $nilai['ipa']; ?></a>
                                   </li>
                                   <li class="list-group-item">
-                                    <b>IPS</b> <a class="float-right"><?php echo $nilai['ips']; ?></a>
-                                  </li>
-                                  <li class="list-group-item">
-                                    <b>Agama</b> <a class="float-right"><?php echo $nilai['agama']; ?></a>
-                                  </li>
-                                  <li class="list-group-item">
-                                    <b>PKN</b> <a class="float-right"><?php echo $nilai['pkn']; ?></a>
-                                  </li>
-                                  <li class="list-group-item">
                                     <b>Rata-Rata</b> <a class="float-right"><?php echo $nilai['rata']; ?></a>
                                   </li>
                                 </ul>

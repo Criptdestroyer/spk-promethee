@@ -70,6 +70,21 @@
 			$this->load->view('Siswa/template',$data);
 		}
 
+		public function pengunguman()
+		{
+			$this->checklogin();
+			$data['tittle']			=	"SPK Seleksi Kelas Unggulan";
+			$id_pengguna			=	$this->session->userdata('id');
+			$id_siswa               =   $this->Data_model->get_id_siswa_by($id_pengguna);
+			$data['biodata']		=	$this->Data_model->cek_profil($id_pengguna);
+			$data['pengguna']		=	$this->Data_model->data_pengguna($id_pengguna);
+			$data['nilaiun']		=	$this->Data_model->cek_nilaiun($id_pengguna);
+			$data['sertifikat']		=	$this->Data_model->cek_sertifikat($id_pengguna);
+			$data['siswa']			=	$this->Data_model->get_data_siswa($id_siswa);
+			$data['content']		=	'Siswa/pengunguman';
+			$this->load->view('Siswa/template',$data);
+		}
+
 		function profil()
 		{
 			$this->checklogin();
@@ -156,7 +171,12 @@
 					'nama' => $this->input->post('nama'),
 					'jenis_kelamin' => $this->input->post('jenis_kelamin'),
 					'id_kelas'=> $this->input->post('id_kelas'),
-					'kecamatan' => $this->input->post('kecamatan'),			 
+					'kecamatan' => $this->input->post('kecamatan'),
+					'asal_sekolah' => $this->input->post('asal_sekolah'),
+					'ttl' => $this->input->post('ttl'),
+					'alamat' => $this->input->post('alamat'),
+					'no_hp' => $this->input->post('no_hp'),
+					'nis' => $this->input->post('nis'),			 
 				);
 				
 				$this->form_validation->set_rules("nama","nama","required");
@@ -219,11 +239,11 @@
 			$b = $this->input->post('b_ind');
 			$c = $this->input->post('b_ing');
 			$d = $this->input->post('ipa');
-			$e = $this->input->post('ips');
-			$f = $this->input->post('agama');
-			$g = $this->input->post('pkn');
+			// $e = $this->input->post('ips');
+			// $f = $this->input->post('agama');
+			// $g = $this->input->post('pkn');
 
-			$ss = ($a+$b+$c+$d+$e+$f+$g)/7;
+			$ss = ($a+$b+$c+$d)/4;
 			
 			// $key['id_siswa']; 
 
@@ -233,9 +253,9 @@
 				'b_ind' => $b,
 				'b_ing' => $c,
 				'ipa'=> $d,
-				'ips' => $e,
-				'agama'=> $f,
-				'pkn' => $g,
+				// 'ips' => $e,
+				// 'agama'=> $f,
+				// 'pkn' => $g,
 				'rata' => $ss,
 			);
 
@@ -249,9 +269,9 @@
 			$this->form_validation->set_rules("b_ind","b_ind","required");
 			$this->form_validation->set_rules("b_ing","b_ing","required");
 			$this->form_validation->set_rules("ipa","ipa","required");
-			$this->form_validation->set_rules("ips","ips","required");
-			$this->form_validation->set_rules("agama","agma","required");
-			$this->form_validation->set_rules("pkn","pkn","required");
+			// $this->form_validation->set_rules("ips","ips","required");
+			// $this->form_validation->set_rules("agama","agma","required");
+			// $this->form_validation->set_rules("pkn","pkn","required");
 				
    			if($this->form_validation->run() == FALSE){
             	echo validation_errors();

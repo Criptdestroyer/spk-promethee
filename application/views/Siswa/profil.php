@@ -43,7 +43,22 @@
                                   <li class="list-group-item">
                                     <b>Nama</b> <a class="float-right"><?php echo $key['nama']; ?></a>
                                   </li>
+                                   <li class="list-group-item">
+                                    <b>Asal Sekolah</b> <a class="float-right"><?php echo $key['asal_sekolah']; ?></a>
+                                  </li>
+                                   <li class="list-group-item">
+                                    <b>TTL</b> <a class="float-right"><?php echo $key['ttl']; ?></a>
+                                  </li>
+                                   <li class="list-group-item">
+                                    <b>Alamat</b> <a class="float-right"><?php echo $key['alamat']; ?></a>
+                                  </li>
+                                   <li class="list-group-item">
+                                    <b>No HP</b> <a class="float-right"><?php echo $key['no_hp']; ?></a>
+                                  </li>
                                   <li class="list-group-item">
+                                    <b>NIS</b> <a class="float-right"><?php echo $key['nis']; ?></a>
+                                  </li>
+                                   <li class="list-group-item">
                                     <b>Kelas</b> <a class="float-right"><?= $data_kelas ?></a>
                                   </li>
                                   <li class="list-group-item">

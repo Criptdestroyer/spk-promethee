@@ -77,14 +77,25 @@
 			$data['content']		=	'Kepsek/rangking';
 			$this->load->view('Kepsek/template',$data);	
 		}
-
-		
-
 		
 		public function logout()
 		{
 			$this->session->unset_userdata('login');
         	redirect(base_url('Home'),'refresh');
+		}
+
+		public function detail_siswa($id_siswa){
+	      $id_pengguna		 = $this->session->userdata('id');
+	      $data['pengguna']	 =	$this->Data_model->data_pengguna($id_pengguna);
+	      $data['tittle']	 =	"Kepala Sekolah | SPK Seleksi Kelas Unggulan";
+		  $data['biodata']   = $this->Data_model->siswa($id_siswa)->result_array();
+		  $id_pengguna_siswa = $data['biodata'][0]["id"];
+		  $data['nilaiun']   = $this->Data_model->cek_nilaiun($id_pengguna_siswa)->result_array();
+		  $data['nilaiakademik'] = $this->Data_model->get_nilai_akademik_by($id_siswa);
+		  $data['reratanilai']   = $this->Data_model->get_rerata_nilai_by($id_siswa);
+		  $data['sertifikat']    = $this->Data_model->cek_sertifikat($id_pengguna_siswa)->result_array();
+		  $data['content']		 =	'Kepsek/detail_siswa';
+		  $this->load->view('Kepsek/template',$data);	
 		}
 	}
 

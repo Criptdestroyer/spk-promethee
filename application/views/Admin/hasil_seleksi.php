@@ -167,7 +167,7 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
                     	<div id="result" class="tab-pane active">
 	                        <h3>Tabel Hasil Seleksi</h3>
 	                        <div class="table-responsive">
-                                <table id="example3" class="table table-striped table-bordered">
+                                <table  border="1" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Alternatif</th>
@@ -344,6 +344,9 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
                 </div>
             </div>
             <a id="simpan_hasil" ><button class="btn btn-lg btn-primary">Simpan hasil rangking</button></a>
+             <a id="cetak_hasil" ><button class="btn btn-lg btn-success">Cetak hasil rangking</button></a>
+              <a id="umumkan_hasil" ><button class="btn btn-lg btn-warning">Umumkan</button></a>
+               <a id="tarik_hasil" ><button class="btn btn-lg btn-danger">Tarik Pengunguman</button></a>
         </div>
         <!-- /#page-wrapper -->
     </section>
@@ -353,9 +356,33 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
         $(document).ready(function(){
             $("#simpan_hasil").click(function(){
                var hasil = <?= json_encode($hasil)?>;
-               $.post("<?= base_url() ?>Admin/Home/simpan_hasil",{rangking : hasil},
+               $.post("<?= base_url() ?>Admin/Home/hasil/simpan",{rangking : hasil},
                 function(res){
-                   toastr.success("Rangking Berhasil Disimpan",res);
+                   toastr.success(res,"Berhasil");
+               })
+            });
+
+            $("#umumkan_hasil").click(function(){
+               var hasil = <?= json_encode($hasil)?>;
+               $.post("<?= base_url() ?>Admin/Home/hasil/umumkan",{rangking : hasil},
+                function(res){
+                   toastr.success(res,"Berhasil");
+               })
+            });
+
+            $("#cetak_hasil").click(function(){
+                w=window.open();
+                w.document.write($('#result').html());
+                w.print();
+                w.close();
+                   
+            });
+
+             $("#tarik_hasil").click(function(){
+               var hasil = <?= json_encode($hasil)?>;
+               $.post("<?= base_url() ?>Admin/Home/hasil/tarik",
+                function(res){
+                   toastr.success(res,"Berhasil");
                })
             });
         });

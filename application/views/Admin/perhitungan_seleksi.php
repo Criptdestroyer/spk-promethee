@@ -50,13 +50,12 @@
                                     <td><?php echo $p['jenis']; ?></td>
                                     <td>
                                         <select class=" form-control" name="tipe[<?php echo $p['id_kriteria'] ?>]">
-                                          <option value="">Tipe</option>
-                                          <option value="1">1</option>
-                                          <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="4">4</option>
-                                          <option value="5">5</option>
-                                          <option value="6">6</option>
+                                          <option value="1">1 (Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)</option>
+                                          <option value="2">2 (segi kualitas dan mutu)</option>
+                                          <option value="3">3 (harga, biaya, daya)</option>
+                                          <option value="4">4 (Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)</option>
+                                          <option value="5">5 (harga, biaya, daya)</option>
+                                          <option value="6">6 (kualitatif dan kuantitatif)</option>
                                         </select>
                                     </td>
                                 </tr>

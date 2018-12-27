@@ -1,3 +1,7 @@
+<?php
+  
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,11 +57,9 @@
         </div>
         <div class="row">
           <div class="col-8">
-            <div class="checkbox icheck">
-              <label>
-                <input type="checkbox"> Remember Me
-              </label>
-            </div>
+              <p class="mb-0">
+        <a href="#" data-toggle="modal" data-target="#modal-default">Register a new membership</a>
+      </p>
           </div>
           <!-- /.col -->
           <div class="col-4">
@@ -115,8 +117,8 @@
                   <label>Kelas</label>
                   <select class="form-control" id="register_kelas">
                     <?php 
-                       if(sizeof($kelas->result_array()) > 0){
-                        foreach ($kelas->result_array() as $value) {
+                       if(sizeof($data_kelas->result_array()) > 0){
+                        foreach ($data_kelas->result_array() as $value) {
                     ?>
                     <option value="<?= $value['id_kelas'] ?>"><?= $value["NamaKelas"] ?></option>
                     <?php  }} ?>
@@ -125,6 +127,26 @@
                 <div class="form-group">
                   <label for="exampleInputPassword1">Kecamatan</label>
                   <input type="text" class="form-control" id="register_kec" placeholder="Kecamatan">
+                </div>
+                 <div class="form-group">
+                  <label for="exampleInputPassword1">Asal Sekolah</label>
+                  <input type="text" class="form-control" id="register_asalsekolah" placeholder="Asal Sekolah">
+                </div>
+                 <div class="form-group">
+                  <label for="exampleInputPassword1">Tempat, Tanggal Lahir</label>
+                  <input type="text" class="form-control" id="register_ttl" placeholder="Tempat, tanggal-bulan-tahun">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Alamat</label>
+                  <input type="text" class="form-control" id="register_alamat" placeholder="Alamat">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">NO HP</label>
+                  <input type="text" class="form-control" id="register_nohp" placeholder="Nomor HP">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">NIS</label>
+                  <input type="text" class="form-control" id="register_nis" placeholder="NIS">
                 </div>
               </div>
                 <div class="form-group">
@@ -167,9 +189,6 @@
       <!--<p class="mb-1">
         <a href="#">I forgot my password</a>
       </p>-->
-      <p class="mb-0">
-        <a href="#" data-toggle="modal" data-target="#modal-default">Register a new membership</a>
-      </p>
     </div>
     <!-- /.login-card-body -->
   </div>
@@ -230,6 +249,11 @@
                   data[5] = $('input[name=jk]:checked').val();
                   data[6] = $("#register_kec").val();
                   data[7] = $("#register_kelas").val();
+                  data[8] = $("#register_asalsekolah").val();
+                  data[9] = $("#register_ttl").val();
+                  data[10] = $("#register_alamat").val();
+                  data[11] = $("#register_nohp").val();
+                  data[12] = $("#register_nis").val();
                   $.ajax({
                       type : "POST",
                       url  : "<?= base_url()?>Home/register",

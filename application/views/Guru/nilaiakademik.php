@@ -32,21 +32,23 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Nilai Akademik</th>
+                                    <th>Rata-rata Nilai Akademik</th>
                                 </tr>
                               </thead>
                               <tbody>
                                <?php
-                                    $no=0;
-                                    foreach($siswa as $data) {
-                                    $no++;
+                                    if(sizeof($siswa) > 0){
+                                      $no=0;
+                                       foreach($siswa as $data) {
+                                       $no++;
+                                    
                                   ?>
                                   <tr>
                                     <td><?php echo "".$no; ?></td>
                                     <td><?php echo $data['nama']; ?></td>
                                     <td><?php echo $data['value']; ?></td>
                                   </tr>
-                              <?php } ?>
+                              <?php }} ?>
                               </tbody>
                             </table>
                         </div>

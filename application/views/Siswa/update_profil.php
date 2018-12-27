@@ -43,6 +43,36 @@
                                             <input type="text" name="nama" class="form-control" value="<?php echo $key['nama'];?>" required>
                                         </div>
                                     </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="nama">Asal Sekolah</label>
+                                            <input type="text" name="asal_sekolah" class="form-control" value="<?php echo $key['asal_sekolah'];?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="nama">TTL</label>
+                                            <input type="text" name="ttl" class="form-control" value="<?php echo $key['ttl'];?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="nama">Alamat</label>
+                                            <input type="text" name="alamat" class="form-control" value="<?php echo $key['alamat'];?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="nama">NO HP</label>
+                                            <input type="text" name="no_hp" class="form-control" value="<?php echo $key['no_hp'];?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="nama">NIS</label>
+                                            <input type="text" name="nis" class="form-control" value="<?php echo $key['nis'];?>" required>
+                                        </div>
+                                    </div>
                                  <div class="col-6">
                                         <div class="form-group">
                                             <label for="nama">Jenis Kelamin</label>

@@ -4,6 +4,7 @@
   $label_profile = "";
   $label_nun = "";
   $label_sertifikat = "";
+  $label_pengunguman = "";
   // var_dump($content);
   // exit();
   switch ($content) {
@@ -18,6 +19,9 @@
     break;
     case 'Siswa/nilaiun':
      $label_nun = "active";
+    break;
+    case 'Siswa/pengunguman':
+     $label_pengunguman = "active";
     break;
      case 'Siswa/input_nilaiun':
      $label_nun = "active";
@@ -60,6 +64,14 @@
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a href="<?php echo base_url();?>Siswa/Home/pengunguman" class="nav-link <?= $label_pengunguman; ?>">
+              <i class="nav-icon fa fa-inbox"></i>
+              <p>
+                Pengunguman
               </p>
             </a>
           </li>
