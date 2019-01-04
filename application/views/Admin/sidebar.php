@@ -60,27 +60,13 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link <?= $pengguna_label; ?>">
+            <a href="<?php echo base_url();?>Admin/Home/daftar_pengguna" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Pengguna
                 <i class="right fa fa-angle-left"></i><!--<span class="right badge badge-danger">New</span>-->
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo base_url();?>Admin/Home/daftar_pengguna" class="nav-link">
-                  <i class="fa fa-table nav-icon"></i>
-                  <p>Daftar Pengguna</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url();?>Admin/Home/tambah_pengguna" class="nav-link">
-                  <i class="fa fa-edit nav-icon"></i>
-                  <p>Input Pengguna</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link <?= $guru_label; ?>">

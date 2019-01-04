@@ -31,8 +31,6 @@
                                        <div class="col-3">
                                             <select class="form-control show-tick" name="tingkat" id="nama">
                                                 <option value="">-- PILIH TINGKAT --</option>
-                                                <option value="XII">XII</option>
-                                                <option value="XI">XI</option>
                                                 <option value="X">X</option>            
                                             </select>
                                         </div>
