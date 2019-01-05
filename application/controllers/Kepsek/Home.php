@@ -3,7 +3,7 @@
 	/**
 	* 
 	*/
-	class Home extends CI_Controller
+	class Home extends MY_Controller
 	{
 		
 		function __construct()
@@ -96,6 +96,28 @@
 		  $data['sertifikat']    = $this->Data_model->cek_sertifikat($id_pengguna_siswa)->result_array();
 		  $data['content']		 =	'Kepsek/detail_siswa';
 		  $this->load->view('Kepsek/template',$data);	
+		}
+
+		public function batas(){
+			$this->load->model('batas_nilai_m');
+			$id_pengguna		 = $this->session->userdata('id');
+			$data['pengguna']	 = $this->Data_model->data_pengguna($id_pengguna);
+			$data['batas']		 = $this->batas_nilai_m->get_row('id_batas = 1');
+			$data['tittle']	 	 =	"Kepala Sekolah | SPK Seleksi Kelas Unggulan";
+			$data['content']	 =	'Kepsek/batas';
+			print_r($_POST);
+			if($this->POST('submit'))
+			{
+				
+				$data=
+				[
+					'batas'=>$this->POST('batas')
+				];
+				$this->batas_nilai_m->update(1,$data);
+				redirect(site_url('Kepsek/Home/batas'));
+			}
+			
+		  	$this->load->view('Kepsek/template',$data);
 		}
 	}
 

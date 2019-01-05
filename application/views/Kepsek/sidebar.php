@@ -2,6 +2,7 @@
 <?php
    $dash      = "";
    $hasil     = "";
+   $batas     = "";
    switch ($content) {
      case 'Kepsek/home':
         $dash = "active";
@@ -9,6 +10,9 @@
        case 'Kepsek/rangking':
         $hasil = "active";
        break;
+       case 'Kepsek/batas':
+        $batas = "active";
+        break;
      default:
         $hasil = "active";
        break;
@@ -43,6 +47,14 @@
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
                 Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="<?php echo base_url();?>Kepsek/Home/batas" class="nav-link <?= $batas; ?>">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Batas Nilai
               </p>
             </a>
           </li>
