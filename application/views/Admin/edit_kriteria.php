@@ -49,6 +49,19 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
+                                            <label for="kelas">Tipe</label>
+                                            <select class=" form-control" name="tipe">
+                                                <option value="1" <?php if($k['tipe']=='1'){echo "selected";}?>>1 (Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)</option>
+                                                <option value="2"<?php if($k['tipe']=='2'){echo "selected";}?>>2 (segi kualitas dan mutu)</option>
+                                                <option value="3"<?php if($k['tipe']=='3'){echo "selected";}?>>3 (Kuantitatif,harga, biaya, daya)</option>
+                                                <option value="4"<?php if($k['tipe']=='4'){echo "selected";}?>>4 (Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)</option>
+                                                <option value="5"<?php if($k['tipe']=='5'){echo "selected";}?>>5 (Kuantitatif, harga, biaya, daya)</option>
+                                                <option value="6"<?php if($k['tipe']=='6'){echo "selected";}?>>6 (kualitatif dan kuantitatif)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
                                             <label for="nama">Bobot</label>
                                             <input type="number" name="bobot" class="form-control" value="<?php echo $k['bobot']?>" step="0.01" required>
                                         </div>

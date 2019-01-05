@@ -37,6 +37,7 @@
                                     <th>Nama Kriteria</th>
                                     <th>Bobot</th>
                                     <th>Jenis</th>
+                                    <th>Tipe</th>
                                     <th>Actions</th>
                                 </tr>
                               </thead>
@@ -50,6 +51,21 @@
                                     <td><?php echo $p['nama']; ?></td>
                                     <td><?php echo $p['bobot']; ?></td>
                                     <td><?php echo $p['jenis']; ?></td>
+                                    <td><?php 
+                                        if($p['tipe']==1){
+                                          echo '(Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)';
+                                        }else if($p['tipe']==2){
+                                          echo '(segi kualitas dan mutu)';
+                                        }else if($p['tipe']==3){
+                                          echo '(Kuantitatif,harga, biaya, daya)';
+                                        }else if($p['tipe']==4){
+                                          echo '(Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)';
+                                        }else if($p['tipe']==5){
+                                          echo '(Kuantitatif, harga, biaya, daya)';
+                                        }else if($p['tipe']==6){
+                                          echo '(kualitatif dan kuantitatif)';
+                                        }
+                                    ?></td>
                                     <td>
                                         <a href="<?php echo site_url('Admin/Home/edit_kriteria/'.$p['id_kriteria']); ?>" class="btn btn-info btn-xs">Edit</a> 
                                         <a href="<?php echo site_url('Admin/Home/hapus_kriteria/'.$p['id_kriteria']); ?>" class="btn btn-danger btn-xs">Delete</a>

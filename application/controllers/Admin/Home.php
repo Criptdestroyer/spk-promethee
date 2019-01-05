@@ -512,10 +512,12 @@
 				'nama' => $this->input->post('nama'),
 				'bobot' => $this->input->post('bobot'),
 				'jenis' => $this->input->post('jenis'),
+				'tipe'=> $this->input->post('tipe')
 			);
 			$this->form_validation->set_rules('nama','nama','required');
 			$this->form_validation->set_rules('bobot','bobot','required');
 			$this->form_validation->set_rules('jenis','jenis','required');
+			$this->form_validation->set_rules('tipe','tipe','required');
 
 			if($this->form_validation->run() == FALSE){
             	echo validation_errors();
@@ -601,6 +603,7 @@
 				'nama' => $this->input->post('nama'),
 				'jenis' => $this->input->post('jenis'),
 				'bobot' => $this->input->post('bobot'),
+				'tipe' => $this->input->post('tipe')
             );
 			$this->form_validation->set_rules('nama','nama','required');
 			$this->form_validation->set_rules('jenis','jenis','required');

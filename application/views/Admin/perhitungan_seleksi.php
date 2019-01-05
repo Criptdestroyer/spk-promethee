@@ -48,16 +48,21 @@
                                     <td><?php echo $p['nama']; ?></td>
                                     <td><?php echo $p['bobot']; ?></td>
                                     <td><?php echo $p['jenis']; ?></td>
-                                    <td>
-                                        <select class=" form-control" name="tipe[<?php echo $p['id_kriteria'] ?>]">
-                                          <option value="1">1 (Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)</option>
-                                          <option value="2">2 (segi kualitas dan mutu)</option>
-                                          <option value="3">3 (harga, biaya, daya)</option>
-                                          <option value="4">4 (Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)</option>
-                                          <option value="5">5 (harga, biaya, daya)</option>
-                                          <option value="6">6 (kualitatif dan kuantitatif)</option>
-                                        </select>
-                                    </td>
+                                    <td><?php 
+                                        if($p['tipe']==1){
+                                          echo '(Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)';
+                                        }else if($p['tipe']==2){
+                                          echo '(segi kualitas dan mutu)';
+                                        }else if($p['tipe']==3){
+                                          echo '(Kuantitatif,harga, biaya, daya)';
+                                        }else if($p['tipe']==4){
+                                          echo '(Kualitatif, ya / tidak ada kriteria atau hingga skala 5-point)';
+                                        }else if($p['tipe']==5){
+                                          echo '(Kuantitatif, harga, biaya, daya)';
+                                        }else if($p['tipe']==6){
+                                          echo '(kualitatif dan kuantitatif)';
+                                        }
+                                    ?></td>
                                 </tr>
                                 <?php $c++; } ?>
                               </tbody>

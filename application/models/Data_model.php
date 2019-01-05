@@ -528,7 +528,7 @@ class Data_model extends CI_Model{
 
     function load_kriteria()
     {
-        $hasil = $this->db->query("SELECT distinct KRITERIA.* FROM KRITERIA");
+        $hasil = $this->db->query("SELECT distinct kriteria.* FROM kriteria");
     
 
         while ($data_row = mysqli_fetch_assoc($hasil->result_id)) {
@@ -548,12 +548,12 @@ class Data_model extends CI_Model{
 
     function load_calon()
     {
-       $hasil = $this->db->query("SELECT distinct siswa.* FROM Siswa JOIN CALON_KRITERIA ON (siswa.id_siswa=CALON_KRITERIA.calon_id) ");
+       $hasil = $this->db->query("SELECT distinct siswa.* FROM siswa JOIN calon_kriteria ON (siswa.id_siswa=calon_kriteria.calon_id) ");
 
         while ($data_row = mysqli_fetch_assoc($hasil->result_id)) {
             $datas['data'][$data_row['id']] = $data_row;
 
-            $hasil2 = $this->db->query("SELECT KRITERIA.nama, KRITERIA.id_kriteria AS nama_kriteria, CALON_KRITERIA.value  FROM CALON_KRITERIA join KRITERIA ON (KRITERIA.ID_KRITERIA=CALON_KRITERIA.id_kriteria) WHERE CALON_KRITERIA.CALON_ID =".$datas['data'][$data_row['id']]['id_siswa']);
+            $hasil2 = $this->db->query("SELECT kriteria.nama, kriteria.id_kriteria AS nama_kriteria, calon_kriteria.value  FROM calon_kriteria join kriteria ON (kriteria.ID_KRITERIA=calon_kriteria.id_kriteria) WHERE calon_kriteria.CALON_ID =".$datas['data'][$data_row['id']]['id_siswa']);
 
             while ($data_row2 = mysqli_fetch_assoc($hasil2->result_id)) {
                 $datas['data'][$data_row['id']]['kriteria'][$data_row2['nama']] = $data_row2;
