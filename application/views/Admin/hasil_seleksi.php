@@ -9,7 +9,7 @@
 
 foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
 
-				$bobot = $value_kriteria['bobot'];
+				$bobot = $value_kriteria['bobot']/$data_kriteria['ekstra']['total_bobot'];
 				$y = 1;
 				// Jarak Kriteria
 				foreach ($data_calon['data'] as $key_calon_y => $value_calon_y) {
@@ -27,7 +27,7 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
 
 						//echo tresholdP($value_kriteria['id_kriteria'])."--".tresholdQ($value_kriteria['id_kriteria'])."||";
 
-						$nilai_pref = NilaiPreferensi($tipe[$value_kriteria['id_kriteria']], $jka,tresholdQ($value_kriteria['id_kriteria']), tresholdP($value_kriteria['id_kriteria']), $bobot);
+						$nilai_pref = NilaiPreferensi($value_kriteria['tipe'], $jka,tresholdQ($value_kriteria['id_kriteria']), tresholdP($value_kriteria['id_kriteria']), $bobot);
 
 						$h_d[$key_kriteria]['A'.$y][] = $nilai_pref;
 						$ip[$key_kriteria]['A'.$y][] = $nilai_pref*$bobot;
@@ -66,7 +66,8 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
 				$hasil['A'.($j+1)]['entering'] = $tmp_entering/(count($data_calon['data'])-1);
 				$hasil['A'.($j+1)]['net_flow'] = $hasil['A'.($j+1)]['leaving']-$hasil['A'.($j+1)]['entering'];
 				$hasil['A'.($j+1)]['status'] = $hasil['A'.($j+1)]['net_flow'] < 0 ? 'Ditolak' : 'Diterima';
-				$hasil['A'.($j+1)]['nama'] = $value['nama'];
+                $hasil['A'.($j+1)]['nama'] = $value['nama'];
+                $hasil['A'.($j+1)]['kelas'] = $value['NamaKelas'];
 				$j++;
 			}
 
@@ -102,7 +103,7 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example1" class="table table-striped table-bordered"">
+                                <table id="example1" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th rowspan="2" style="vertical-align: middle;">No</th>
@@ -126,7 +127,7 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
                                                 <td><?php echo $value['bobot']/$data_kriteria['ekstra']['total_bobot'];?></td>
                                                 <td><?php echo  $value['jenis'] ?></td>
                                                 <td>
-                                                    <?php echo $tipe[$value['id_kriteria']] ?>
+                                                    <?php echo $value['tipe'] ?>
                                                 </td>
                                                 <td>
                                                     <?php echo tresholdQ($value['id_kriteria']) ?>
@@ -167,11 +168,12 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
                     	<div id="result" class="tab-pane active">
 	                        <h3>Tabel Hasil Seleksi</h3>
 	                        <div class="table-responsive">
-                                <table  border="1" class="table table-striped table-bordered">
+                                <table id="example10" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Alternatif</th>
                                             <th>Nama</th>
+                                            <th>Kelas</th>
                                             <th>Leaving Flow</th>
                                             <th>Entering Flow</th>
                                             <th>Net Flow</th>
@@ -179,10 +181,13 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($hasil as $key => $value){ ?>
+                                        <?php $ipa = 0;
+                                            $ips = 0;
+                                        foreach ($hasil as $key => $value){ ?>
                                             <tr>
                                                 <td><?php echo $key ?></td>
                                                 <td><?php echo $value['nama']; ?></td>
+                                                <td><?php echo $value['kelas']; ?></td>
                                                 <td><?php echo $value['leaving'] ?></td>
                                                 <td><?php echo $value['entering'] ?></td>
                                                 <td><?php echo $value['net_flow'] ?></td>
@@ -192,7 +197,15 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
                                                     </span>
                                                 </td>
                                             </tr>
-                                        <?php } ?>
+                                        <?php
+                                            
+                                            if(strpos($value['kelas'],'IPA')!=false && $value['status']=='Diterima'){
+                                                $ipa++;
+                                            }
+                                            if(strpos($value['kelas'],'IPS')!=false && $value['status']=='Diterima'){
+                                                $ips++;
+                                            }
+                                    } ?>
                                     </tbody>
                                 </table>
 	                        </div>
@@ -342,17 +355,23 @@ foreach ($data_kriteria['data'] as $key_kriteria => $value_kriteria) {
 
                   </div>
                 </div>
+                <div id='show' style="display:none;"><h5>- Kelas IPA tersisa <?=30-$ipa?> siswa<br>- Kelas IPS tersisa <?=30-$ips?> siswa</h5></div>
             </div>
+            
             <a id="simpan_hasil" ><button class="btn btn-lg btn-primary">Simpan hasil rangking</button></a>
              <a id="cetak_hasil" ><button class="btn btn-lg btn-success">Cetak hasil rangking</button></a>
               <a id="umumkan_hasil" ><button class="btn btn-lg btn-warning">Umumkan</button></a>
                <a id="tarik_hasil" ><button class="btn btn-lg btn-danger">Tarik Pengunguman</button></a>
+               <a id="tarik_kuota" ><button class="btn btn-lg btn-danger" onClick="kuota(this)">Cek Kuota</button></a>
         </div>
         <!-- /#page-wrapper -->
     </section>
 
 
     <script type="text/javascript">
+        function kuota(elem) {
+                    document.getElementById("show").style.display = 'block';
+            }
         $(document).ready(function(){
             $("#simpan_hasil").click(function(){
                var hasil = <?= json_encode($hasil)?>;

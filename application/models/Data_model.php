@@ -548,7 +548,7 @@ class Data_model extends CI_Model{
 
     function load_calon()
     {
-       $hasil = $this->db->query("SELECT distinct siswa.* FROM siswa JOIN calon_kriteria ON (siswa.id_siswa=calon_kriteria.calon_id) ");
+       $hasil = $this->db->query("SELECT distinct * FROM siswa JOIN calon_kriteria ON (siswa.id_siswa=calon_kriteria.calon_id) JOIN kelas on siswa.id_kelas = kelas.id_kelas");
 
         while ($data_row = mysqli_fetch_assoc($hasil->result_id)) {
             $datas['data'][$data_row['id']] = $data_row;

@@ -41,7 +41,7 @@
                               <tbody>
                                 <?php 
                                    $i = 1;
-                                  if(sizeof($rangking>0)){
+                                  if(count($rangking)>0){
                                        $panjang_id = max($rangking)["Id_Siswa"];
                                   }
                                    foreach ($rangking as $value) {

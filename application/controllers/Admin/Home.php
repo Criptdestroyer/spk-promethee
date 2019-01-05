@@ -740,7 +740,6 @@
 			$data['pengguna']		=	$this->Data_model->data_pengguna($id_pengguna);
 			$data['data_kriteria'] = $this->Data_model->load_kriteria();
 			$data['data_calon']	   = $this->Data_model->load_calon();
-			$data['tipe'] 		   = $this->input->post('tipe');
 			$data['content']		=	'Admin/hasil_seleksi';
 			$this->load->view('Admin/template',$data);
 			

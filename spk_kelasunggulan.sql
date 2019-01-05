@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.6deb5
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 27 Des 2018 pada 01.06
--- Versi Server: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+-- Host: localhost:3306
+-- Generation Time: 05 Jan 2019 pada 16.26
+-- Versi Server: 5.7.24-0ubuntu0.18.04.1
+-- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -38,26 +38,38 @@ CREATE TABLE `calon_kriteria` (
 --
 
 INSERT INTO `calon_kriteria` (`id_nilai`, `calon_id`, `id_kriteria`, `value`) VALUES
-(168, 25, 7, 77),
-(169, 25, 5, 3),
-(171, 25, 4, 90),
-(172, 27, 7, 90),
-(173, 27, 5, 1),
-(174, 27, 4, 100),
-(179, 26, 7, 50),
-(180, 26, 5, 1),
-(181, 26, 4, 50),
-(182, 28, 4, 50),
-(184, 28, 7, 80),
-(185, 28, 5, 1),
-(190, 41, 7, 87),
-(192, 41, 5, 2),
-(193, 41, 4, 77),
-(194, 41, 3, 80),
-(195, 25, 3, 84),
-(196, 26, 3, 71),
-(197, 27, 3, 90),
-(198, 28, 3, 84);
+(200, 42, 4, 85),
+(201, 43, 4, 89),
+(202, 44, 4, 92),
+(203, 45, 4, 83),
+(204, 46, 4, 88),
+(205, 47, 4, 94),
+(206, 48, 4, 91),
+(207, 49, 4, 92),
+(208, 42, 5, 1),
+(209, 43, 5, 3),
+(211, 44, 5, 6),
+(212, 45, 5, 2),
+(213, 46, 5, 4),
+(214, 48, 5, 5),
+(215, 49, 5, 7),
+(216, 42, 7, 76),
+(217, 43, 7, 53),
+(218, 44, 7, 87),
+(219, 45, 7, 90),
+(220, 46, 7, 70),
+(221, 47, 7, 65),
+(222, 48, 7, 68),
+(223, 49, 7, 84),
+(224, 43, 3, 90),
+(225, 45, 3, 95),
+(226, 46, 3, 81),
+(227, 49, 3, 65),
+(228, 42, 3, 86),
+(229, 48, 3, 73),
+(230, 44, 3, 76),
+(231, 47, 3, 87),
+(232, 47, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -76,10 +88,14 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`id_guru`, `id`, `id_kelas`) VALUES
-(10, 66, 3),
-(11, 70, 1),
-(13, 82, 5),
-(14, 80, 4);
+(15, 96, 1),
+(16, 97, 2),
+(17, 98, 3),
+(18, 99, 6),
+(19, 100, 7),
+(20, 101, 8),
+(21, 102, 9),
+(22, 103, 10);
 
 -- --------------------------------------------------------
 
@@ -97,11 +113,14 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id_kelas`, `NamaKelas`) VALUES
-(1, 'XI IPA 1'),
+(1, 'X IPA 1'),
 (2, 'X IPA 2'),
 (3, 'X IPA 3'),
-(4, 'XII IPA 2'),
-(5, 'XII IPS 4');
+(6, 'X IPA 4'),
+(7, 'X IPA 5'),
+(8, 'X IPS 1'),
+(9, 'X IPS 2'),
+(10, 'X IPS 3');
 
 -- --------------------------------------------------------
 
@@ -113,18 +132,19 @@ CREATE TABLE `kriteria` (
   `id_kriteria` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `bobot` double NOT NULL,
-  `jenis` varchar(50) NOT NULL
+  `jenis` varchar(50) NOT NULL,
+  `tipe` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kriteria`
 --
 
-INSERT INTO `kriteria` (`id_kriteria`, `nama`, `bobot`, `jenis`) VALUES
-(3, 'Rata-Rata Nilai Akademik', 0.7, 'Benefit'),
-(4, 'Nilai Psikotes', 0.15, 'Benefit'),
-(5, 'Sertifikat Prestasi', 0.1, 'Benefit'),
-(7, 'Nilai UN', 0.05, 'Benefit');
+INSERT INTO `kriteria` (`id_kriteria`, `nama`, `bobot`, `jenis`, `tipe`) VALUES
+(3, 'Rata-Rata Nilai Akademik', 0.7, 'Benefit', '3'),
+(4, 'Nilai Psikotes', 0.15, 'Benefit', '3'),
+(5, 'Sertifikat Prestasi', 0.1, 'Benefit', '3'),
+(7, 'Nilai UN', 0.05, 'Benefit', '3');
 
 -- --------------------------------------------------------
 
@@ -209,65 +229,110 @@ CREATE TABLE `nilaiakademik` (
 --
 
 INSERT INTO `nilaiakademik` (`id_nilai_akademik`, `id_siswa`, `id_mp`, `nilai`) VALUES
-(1, 41, 12, 80),
-(2, 41, 13, 70),
-(3, 41, 14, 60),
-(4, 41, 15, 50),
-(5, 41, 16, 80),
-(6, 41, 17, 78),
-(7, 41, 18, 80),
-(8, 41, 19, 90),
-(9, 41, 20, 95),
-(10, 41, 21, 80),
-(11, 41, 22, 77),
-(12, 41, 23, 89),
-(13, 41, 24, 86),
-(14, 41, 25, 90),
-(15, 41, 26, 98),
-(16, 25, 1, 90),
-(17, 25, 2, 80),
-(18, 25, 3, 90),
-(19, 25, 4, 88),
-(20, 25, 5, 70),
-(21, 25, 6, 70),
-(22, 25, 7, 88),
-(23, 25, 8, 90),
-(24, 25, 9, 90),
-(25, 25, 10, 90),
-(26, 25, 11, 77),
-(27, 26, 1, 50),
-(28, 26, 2, 70),
-(29, 26, 3, 70),
-(30, 26, 4, 80),
-(31, 26, 5, 90),
-(32, 26, 6, 88),
-(33, 26, 7, 60),
-(34, 26, 8, 70),
-(35, 26, 9, 50),
-(36, 26, 10, 77),
-(37, 26, 11, 80),
-(38, 27, 1, 90),
-(39, 27, 2, 90),
-(40, 27, 3, 90),
-(41, 27, 4, 90),
-(42, 27, 5, 88),
-(43, 27, 6, 89),
-(44, 27, 7, 95),
-(45, 27, 8, 97),
-(46, 27, 9, 89),
-(47, 27, 10, 88),
-(48, 27, 11, 87),
-(49, 28, 1, 90),
-(50, 28, 2, 90),
-(51, 28, 3, 70),
-(52, 28, 4, 88),
-(53, 28, 5, 80),
-(54, 28, 6, 88),
-(55, 28, 7, 85),
-(56, 28, 8, 90),
-(57, 28, 9, 90),
-(58, 28, 10, 86),
-(59, 28, 11, 70);
+(60, 43, 1, 90),
+(61, 43, 2, 90),
+(62, 43, 3, 90),
+(63, 43, 4, 90),
+(64, 43, 5, 90),
+(65, 43, 6, 90),
+(66, 43, 7, 90),
+(67, 43, 8, 90),
+(68, 43, 9, 90),
+(69, 43, 10, 90),
+(70, 43, 11, 90),
+(71, 45, 1, 95),
+(72, 45, 2, 95),
+(73, 45, 3, 95),
+(74, 45, 4, 95),
+(75, 45, 5, 95),
+(76, 45, 6, 95),
+(77, 45, 7, 95),
+(78, 45, 8, 95),
+(79, 45, 9, 95),
+(80, 45, 10, 95),
+(81, 45, 11, 95),
+(82, 46, 1, 81),
+(83, 46, 2, 81),
+(84, 46, 3, 81),
+(85, 46, 4, 81),
+(86, 46, 5, 81),
+(87, 46, 6, 81),
+(88, 46, 7, 81),
+(89, 46, 8, 81),
+(90, 46, 9, 81),
+(91, 46, 10, 81),
+(92, 46, 11, 81),
+(93, 49, 1, 65),
+(94, 49, 2, 65),
+(95, 49, 3, 65),
+(96, 49, 4, 65),
+(97, 49, 5, 65),
+(98, 49, 6, 65),
+(99, 49, 7, 65),
+(100, 49, 8, 65),
+(101, 49, 9, 65),
+(102, 49, 10, 65),
+(103, 49, 11, 65),
+(104, 42, 12, 86),
+(105, 42, 13, 86),
+(106, 42, 14, 86),
+(107, 42, 15, 86),
+(108, 42, 16, 86),
+(109, 42, 17, 86),
+(110, 42, 18, 86),
+(111, 42, 19, 86),
+(112, 42, 20, 86),
+(113, 42, 21, 86),
+(114, 42, 22, 86),
+(115, 42, 23, 86),
+(116, 42, 24, 86),
+(117, 42, 25, 86),
+(118, 42, 26, 86),
+(119, 48, 12, 73),
+(120, 48, 13, 73),
+(121, 48, 14, 73),
+(122, 48, 15, 73),
+(123, 48, 16, 73),
+(124, 48, 17, 73),
+(125, 48, 18, 73),
+(126, 48, 19, 73),
+(127, 48, 20, 73),
+(128, 48, 21, 73),
+(129, 48, 22, 73),
+(130, 48, 23, 73),
+(131, 48, 24, 73),
+(132, 48, 25, 73),
+(133, 48, 26, 73),
+(134, 44, 12, 76),
+(135, 44, 13, 76),
+(136, 44, 14, 76),
+(137, 44, 15, 76),
+(138, 44, 16, 76),
+(139, 44, 17, 76),
+(140, 44, 18, 76),
+(141, 44, 19, 76),
+(142, 44, 20, 76),
+(143, 44, 21, 76),
+(144, 44, 22, 76),
+(145, 44, 23, 76),
+(146, 44, 24, 76),
+(147, 44, 25, 76),
+(148, 44, 26, 76),
+(149, 47, 12, 87),
+(150, 47, 13, 87),
+(151, 47, 14, 87),
+(152, 47, 15, 87),
+(153, 47, 16, 87),
+(154, 47, 17, 87),
+(155, 47, 18, 87),
+(156, 47, 19, 87),
+(157, 47, 20, 87),
+(158, 47, 21, 87),
+(159, 47, 22, 87),
+(160, 47, 23, 87),
+(161, 47, 24, 87),
+(162, 47, 25, 87),
+(163, 47, 26, 87);
 
 -- --------------------------------------------------------
 
@@ -297,7 +362,15 @@ INSERT INTO `nilaiun` (`id_nilai_un`, `id`, `mtk`, `b_ind`, `b_ing`, `ipa`, `ips
 (5, 68, 90, 90, 90, 90, 90, 90, 90, 90),
 (6, 67, 50, 50, 50, 50, 50, 50, 50, 50),
 (7, 69, 80, 80, 80, 80, 80, 80, 80, 80),
-(8, 87, 90, 100, 78, 80, 0, 0, 0, 87);
+(8, 87, 90, 100, 78, 80, 0, 0, 0, 87),
+(9, 88, 75, 75, 77, 76, 0, 0, 0, 75.75),
+(10, 89, 56, 51, 52, 53, 0, 0, 0, 53),
+(11, 90, 90, 90, 82, 86, 0, 0, 0, 87),
+(12, 91, 90, 91, 89, 90, 0, 0, 0, 90),
+(13, 92, 71, 70, 73, 66, 0, 0, 0, 70),
+(14, 93, 82, 75, 78, 25, 0, 0, 0, 65),
+(15, 94, 80, 68, 62, 62, 0, 0, 0, 68),
+(16, 95, 85, 84, 80, 87, 0, 0, 0, 84);
 
 -- --------------------------------------------------------
 
@@ -321,11 +394,9 @@ CREATE TABLE `pengguna` (
 INSERT INTO `pengguna` (`id`, `nama`, `email`, `username`, `password`, `id_leveling`) VALUES
 (45, 'Admin', 'admin@gmail.com', 'mhakim', '202cb962ac59075b964b07152d234b70', 1),
 (65, 'Anjas', 'anjas@gmail.com', 'anjas', '202cb962ac59075b964b07152d234b70', 2),
-(66, 'Pak Rifki', 'rifki@gmail.com', 'rifki', '827ccb0eea8a706c4c34a16891f84e7b', 3),
 (67, 'Jack Komboy', 'jack@gmail.com', 'jack', '202cb962ac59075b964b07152d234b70', 2),
 (68, 'Diana', 'diana@gmail.com', 'diana', '202cb962ac59075b964b07152d234b70', 2),
 (69, 'Fenita', 'fenita@gmail.com', 'fenita', '202cb962ac59075b964b07152d234b70', 2),
-(70, 'Bu rika', 'rika@gmail.com', 'rika', '827ccb0eea8a706c4c34a16891f84e7b', 3),
 (71, 'Cadi', 'cadi@gmail.com', 'cadi', '202cb962ac59075b964b07152d234b70', 2),
 (72, 'Salim', 'salim@gmail.com', 'salim', '202cb962ac59075b964b07152d234b70', 4),
 (74, 'Ahmad Jeri', 'jeri@gmail.com', 'jeri_x', '202cb962ac59075b964b07152d234b70', 2),
@@ -334,12 +405,26 @@ INSERT INTO `pengguna` (`id`, `nama`, `email`, `username`, `password`, `id_level
 (77, 'Alisia Septa', 'alisia@gmail.com', 'alis', '202cb962ac59075b964b07152d234b70', 2),
 (78, 'Mauro Zarate', 'zarate@gmail.com', 'zarate', '202cb962ac59075b964b07152d234b70', 2),
 (79, 'Tatitjana Indah', 'tea@gmail.com', 'tea', '202cb962ac59075b964b07152d234b70', 2),
-(80, 'Dwi Z', 'dwi@gmail.com', 'dwi', '827ccb0eea8a706c4c34a16891f84e7b', 3),
 (81, 'Jojo', 'jojo@gmail.com', 'jojo', '202cb962ac59075b964b07152d234b70', 2),
-(82, 'Ineke', 'ineke@gmail.com', 'ineke', '827ccb0eea8a706c4c34a16891f84e7b', 3),
 (84, 'Debris ', 'debris@gmail.com', 'debris', '202cb962ac59075b964b07152d234b70', 2),
 (85, 'Axel Rose', 'axl@gmail.com', 'axel_rose', '202cb962ac59075b964b07152d234b70', 2),
-(87, 'Sri Xendarina', 'sri@gmail.com', 'sriX', '202cb962ac59075b964b07152d234b70', 2);
+(87, 'Sri Xendarina', 'sri@gmail.com', 'sriX', '202cb962ac59075b964b07152d234b70', 2),
+(88, 'Delviro Fajar', 'delviro@gmail.com', 'Delviro', '202cb962ac59075b964b07152d234b70', 2),
+(89, 'Rani Ayu', 'rani@gmail.com', 'rani', '202cb962ac59075b964b07152d234b70', 2),
+(90, 'Rafif Bahtiar', 'rafif@gmail.com', 'rafif', '202cb962ac59075b964b07152d234b70', 2),
+(91, 'Lestari Anindya', 'lestari@gmail.com', 'lestari', '202cb962ac59075b964b07152d234b70', 2),
+(92, 'Nooris Mutiara', 'nooris@gmail.com', 'nooris', '202cb962ac59075b964b07152d234b70', 2),
+(93, 'Dina Agustina', 'dina@gmail.com', 'dina', '202cb962ac59075b964b07152d234b70', 2),
+(94, 'Julio Putra', 'julio@gmail.com', 'julio', '202cb962ac59075b964b07152d234b70', 2),
+(95, 'Zaska Shahira', 'zaska@gmail.com', 'zaska', '202cb962ac59075b964b07152d234b70', 2),
+(96, 'Cari Candra Panjaitan', 'cari@gmail.com', 'cari', '202cb962ac59075b964b07152d234b70', 3),
+(97, 'Eko Harmok', 'eko@gmail.com', 'eko', '202cb962ac59075b964b07152d234b70', 3),
+(98, 'Try Yuniarsih', 'try@gmail.com', 'try', '202cb962ac59075b964b07152d234b70', 3),
+(99, 'Ruthmaida Hutabarat', 'ruthmaida@gmail.com', 'ruthmaida', '202cb962ac59075b964b07152d234b70', 3),
+(100, 'Mandala Riano', 'mandala@gmail.com', 'mandala', '202cb962ac59075b964b07152d234b70', 3),
+(101, 'Reli Sinabanan', 'reli@gmail.com', 'reli', '202cb962ac59075b964b07152d234b70', 3),
+(102, 'Subroto Simanjutak', 'subroto@gmail.com', 'subroto', '202cb962ac59075b964b07152d234b70', 3),
+(103, 'Solida Manurung', 'solida@gmail.com', 'solida', '202cb962ac59075b964b07152d234b70', 3);
 
 -- --------------------------------------------------------
 
@@ -373,11 +458,14 @@ CREATE TABLE `rangking` (
 --
 
 INSERT INTO `rangking` (`No`, `Nama`, `Id_Siswa`, `Leaving_flow`, `Entering_flow`, `Net_Flow`) VALUES
-(70, 'Anjas', 25, 0.077265625, 0.060234375, 0.01703125),
-(71, 'Jack Komboy', 26, 0.183515625, 0.222734375, -0.03921875),
-(72, 'Diana', 27, 0.192109375, 0.045390625, 0.14671875),
-(73, 'Fenita', 28, 0.027746394230769, 0.097253605769231, -0.069507211538462),
-(74, 'Sri Xendarina', 41, 0.063112980769231, 0.11813701923077, -0.055024038461538);
+(1, 'Rani Ayu', 43, 0.07901484230055657, -0.014729128014842302, 0.09374397031539887),
+(2, 'Lestari Anindya', 45, 0.13471768707482995, 0.018853741496598637, 0.11586394557823132),
+(3, 'Nooris Mutiara', 46, -0.013269016697588124, 0.013269016697588124, -0.02653803339517625),
+(4, 'Zaska Shahira', 49, 0.09179715522572665, 0.1367742733457019, -0.04497711811997526),
+(5, 'Delviro Fajar', 42, 0.02671243042671614, 0.044716141001855274, -0.018003710575139133),
+(6, 'Julio Putra', 48, -0.018855287569573283, 0.08314100185528757, -0.10199628942486086),
+(7, 'Rafif Bahtiar', 44, -0.02373747680890537, 0.048737476808905375, -0.07247495361781074),
+(8, 'Dina Agustina', 47, 0.07361966604823747, 0.01923747680890538, 0.05438218923933209);
 
 -- --------------------------------------------------------
 
@@ -404,7 +492,36 @@ INSERT INTO `sertifikat` (`id_sertifikat`, `id`, `NamaSertifikat`, `FileSertifik
 (21, 67, 'Sertifikat_saya', 'aroma-jeruk3.jpg'),
 (22, 69, 'satu_ser', 'bf.jpg'),
 (23, 87, 'Sertifikat_saya', 'family.jpg'),
-(24, 87, 'satu_ser', 'shutterstock-252338818.jpg');
+(24, 87, 'satu_ser', 'shutterstock-252338818.jpg'),
+(25, 69, 'hai', '8754225673735.jpg'),
+(26, 88, '1', 'Screenshot from 2018-10-22 18-59-15.png'),
+(27, 89, '1', 'Screenshot from 2018-10-22 18-55-53.png'),
+(28, 89, '2', 'Screenshot from 2018-10-22 18-55-20.png'),
+(29, 89, '3', '8821016767869.jpg'),
+(30, 90, '1', 'Screenshot from 2018-10-22 18-56-22.png'),
+(31, 90, '2', 'logo.png'),
+(32, 90, '3', 'srifoton.jpg'),
+(33, 90, '5', '9114177318940.jpg'),
+(34, 90, '4', 'Screenshot from 2018-10-22 18-55-531.png'),
+(35, 90, '5', '91141773189401.jpg'),
+(36, 91, '1', 'Fig-11.jpg'),
+(37, 91, '2', 'logo1.png'),
+(38, 92, '1', 'graph.jpg'),
+(39, 92, '2', 'srifoton1.jpg'),
+(40, 92, '3', 'logo2.png'),
+(41, 92, '4', 'Screenshot from 2018-10-22 18-55-201.png'),
+(42, 94, '1', 'Screenshot from 2018-10-22 18-55-532.png'),
+(43, 94, '2', 'Screenshot from 2018-10-22 19-06-47.png'),
+(44, 94, '3', 'Screenshot from 2018-11-26 13-09-20.png'),
+(45, 94, '4', 'Screenshot from 2018-10-22 18-59-151.png'),
+(46, 94, '5', 'Screenshot from 2018-10-22 18-53-54.png'),
+(47, 95, '1', 'Screenshot from 2018-10-22 18-56-221.png'),
+(48, 95, '2', 'Screenshot from 2018-10-22 19-06-471.png'),
+(49, 95, '3', 'Screenshot from 2018-10-22 18-55-533.png'),
+(50, 95, '4', 'Screenshot from 2018-10-22 19-06-472.png'),
+(51, 95, '5', 'Screenshot from 2018-10-22 18-55-534.png'),
+(52, 95, '6', 'Screenshot from 2018-11-26 13-09-201.png'),
+(53, 95, '7', 'Screenshot from 2018-10-22 18-56-222.png');
 
 -- --------------------------------------------------------
 
@@ -433,33 +550,14 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `id`, `nama`, `asal_sekolah`, `ttl`, `alamat`, `no_hp`, `nis`, `jenis_kelamin`, `kecamatan`, `id_kelas`, `status`, `submit_by`) VALUES
-(25, 65, 'Anjas', 'SMP N 42 Palembang', 'Palembang, 02-01-2018', 'Jln. Karya Sepakat', '0812121212', '123456789', 'Laki - Laki', 'sukahilir', 3, 'Diterima', NULL),
-(26, 67, 'Jack Komboy', 'SMP XAVERIUS 8 PAPUA', 'Papua, 02-05-1999', 'Jln. Jalan Ke Papua', '08129395', '987654321', 'Laki - Laki', 'aaa', 3, 'Ditolak', NULL),
-(27, 68, 'Diana', '0', '0000-00-00', '', '', '', 'Perempuan', 'sukasuka', 1, 'Diterima', NULL),
-(28, 69, 'Fenita', '0', '0000-00-00', '', '', '', 'Perempuan', 'sukasuka', 1, 'Ditolak', NULL),
-(30, 74, 'Ahmad Jeri', '0', '0000-00-00', '', '', '', 'Laki - Laki', 'sukasuka', 3, 'Belom', NULL),
-(31, 75, 'Yunita', '0', '0000-00-00', '', '', '', 'Perempuan', 'aaa', 1, 'Belom', NULL),
-(32, 76, 'Gouza Zou ', '0', '0000-00-00', '', '', '', 'Laki - Laki', 'ccc', 2, 'Belom', NULL),
-(33, 77, 'Alisia Septa', '0', '0000-00-00', '', '', '', 'Perempuan', 'sukasuka', 3, 'Belom', NULL),
-(34, 78, 'Mauro Zarate', '0', '0000-00-00', '', '', '', 'Laki - Laki', 'sukasuka', 2, 'Belom', NULL),
-(35, 79, 'Tatitjana Indah', '0', '0000-00-00', '', '', '', 'Perempuan', 'sukahilir', 1, 'Belom', NULL),
-(36, 81, 'Jojo', '0', '0000-00-00', '', '', '', 'Laki - Laki', 'sukasuka', 2, 'Belom', NULL),
-(38, 84, 'Debris ', '0', '0000-00-00', '', '', '', 'Perempuan', 'sukasuka', 5, 'Belom', NULL),
-(39, 85, 'Axel Rose', '0', '0000-00-00', '', '', '', 'Laki - Laki', 'sukasuka', 5, 'Belom', NULL),
-(41, 87, 'Sri Xendarina', 'Smp N 4 Palembang', 'Palembang, 02-02-1998', 'Jln. Jalan No. 2', '0812121212', '987654321', 'Perempuan', 'sukasuka', 5, 'Ditolak', NULL);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `subkriteria`
---
-
-CREATE TABLE `subkriteria` (
-  `id` int(11) NOT NULL,
-  `kriteria_id` int(11) DEFAULT '0',
-  `nama` varchar(50) DEFAULT '0',
-  `bobot` double DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(42, 88, 'Delviro Fajar', 'smp 8', 'plg,12-12-12', 'iswahyudi', '09793431', '12445335', 'Laki - Laki', 'kalidoni', 8, 'Ditolak', NULL),
+(43, 89, 'Rani Ayu', 'smp 8', 'plg,12-12-12', 'iswahyudi', '09793431', '12445335', 'Perempuan', 'kalidoni', 1, 'Diterima', NULL),
+(44, 90, 'Rafif Bahtiar', 'smp 8', 'plg,12-12-12', 'iswahyudi', '09793431', '12445335', 'Laki - Laki', 'kalidoni', 9, 'Ditolak', NULL),
+(45, 91, 'Lestari Anindya', 'smp 8', 'plg,12-12-12', 'iswahyudi', '09793431', '12445335', 'Laki - Laki', 'kalidoni', 2, 'Diterima', NULL),
+(46, 92, 'Nooris Mutiara', 'smp 8', 'plg,12-12-12', 'iswahyudi', '09793431', '12445335', 'Laki - Laki', 'kalidoni', 3, 'Ditolak', NULL),
+(47, 93, 'Dina Agustina', 'smp 8', 'plg,12-12-12', 'iswahyudi', '09793431', '12445335', 'Laki - Laki', 'kalidoni', 10, 'Diterima', NULL),
+(48, 94, 'Julio Putra', 'smp 8', 'plg,12-12-12', 'iswahyudi', '09793431', '12445335', 'Laki - Laki', 'kalidoni', 8, 'Ditolak', NULL),
+(49, 95, 'Zaska Shahira', 'smp 8', 'plg,12-12-12', 'iswahyudi', '09793431', '12445335', 'Laki - Laki', 'kalidoni', 6, 'Ditolak', NULL);
 
 --
 -- Indexes for dumped tables
@@ -560,13 +658,6 @@ ALTER TABLE `siswa`
   ADD KEY `id_kelas` (`id_kelas`);
 
 --
--- Indexes for table `subkriteria`
---
-ALTER TABLE `subkriteria`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `kriteria_id` (`kriteria_id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -574,17 +665,17 @@ ALTER TABLE `subkriteria`
 -- AUTO_INCREMENT for table `calon_kriteria`
 --
 ALTER TABLE `calon_kriteria`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kelas` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `kriteria`
 --
@@ -599,17 +690,17 @@ ALTER TABLE `mata_pelajaran`
 -- AUTO_INCREMENT for table `nilaiakademik`
 --
 ALTER TABLE `nilaiakademik`
-  MODIFY `id_nilai_akademik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_nilai_akademik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 --
 -- AUTO_INCREMENT for table `nilaiun`
 --
 ALTER TABLE `nilaiun`
-  MODIFY `id_nilai_un` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_nilai_un` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 --
 -- AUTO_INCREMENT for table `psikotes`
 --
@@ -619,22 +710,17 @@ ALTER TABLE `psikotes`
 -- AUTO_INCREMENT for table `rangking`
 --
 ALTER TABLE `rangking`
-  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `sertifikat`
 --
 ALTER TABLE `sertifikat`
-  MODIFY `id_sertifikat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_sertifikat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
---
--- AUTO_INCREMENT for table `subkriteria`
---
-ALTER TABLE `subkriteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --

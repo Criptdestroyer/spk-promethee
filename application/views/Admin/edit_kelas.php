@@ -38,8 +38,6 @@
                                        <div class="col-3">
                                             <select class="form-control show-tick" name="tingkat" id="nama">
                                                 <option value="">-- PILIH TINGKAT --</option>
-                                                <option value="XII" <?php if($tingkat=="XII"){echo "selected";}?>>XII</option>
-                                                <option value="XI" <?php if($tingkat=="XI"){echo "selected";}?>>XI</option>
                                                 <option value="X" <?php if($tingkat=="X"){echo "selected";}?>>X</option>            
                                             </select>
                                         </div>
